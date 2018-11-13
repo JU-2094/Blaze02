@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/Enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/tmp_enemy.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Enemy/vision.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Enemy/RayCast2D.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 29.1029
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Enemy" type="RigidBody2D" index="0"]
+
+position = Vector2( 419.533, 323.612 )
+scale = Vector2( 1.01079, 1 )
+input_pickable = false
+collision_layer = 2
+collision_mask = 1
+mode = 2
+mass = 1.0
+friction = 1.0
+bounce = 0.2
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+speed = null
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 1 )
+animation = "default"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0.00129861, 0.297264 )
+scale = Vector2( 1.37879, 1.01079 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="Vision" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+modulate = Color( 0.714844, 0.161957, 0.161957, 1 )
+self_modulate = Color( 0.679688, 0.0823059, 0.0823059, 1 )
+position = Vector2( 0.885666, 0.33465 )
+scale = Vector2( 1.11211, 1.17933 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" index="0"]
+
+modulate = Color( 0.664062, 0.280151, 0.280151, 1 )
+self_modulate = Color( 0.550781, 0.141998, 0.141998, 1 )
+position = Vector2( 5.73708, 3.41044 )
+scale = Vector2( 11.3061, 9.817 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 1
+script = ExtResource( 4 )
+
+[connection signal="body_entered" from="Vision" to="Vision" method="_on_Vision_body_entered"]
+
+[connection signal="intruder" from="Vision" to="RayCast2D" method="_on_Vision_intruder"]
+
+[connection signal="follow" from="RayCast2D" to="." method="_on_RayCast2D_follow"]
+
+
