@@ -26,7 +26,7 @@ height = 29.1029
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Enemy" type="RigidBody2D" index="0"]
+[node name="Enemy" type="RigidBody2D"]
 
 position = Vector2( 419.533, 323.612 )
 scale = Vector2( 1.01079, 1 )

@@ -22,6 +22,7 @@ func _process(delta):
 	pass
 
 #Function that modifies the raycast casting target
+#here enemy value holds the player coordinates
 func follow_enemy(enemy):
 	#print("following enemy:",enemy.get_name())
 	intrudloc=enemy.get_transform().origin -get_node("../").get_transform().origin
