@@ -16,7 +16,6 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
 #Function that detects intruders, is the intruder is player then emits signal intruder to raycast
 func _on_Vision_body_entered(body):
 	#print("pepapig"+body.get_name())

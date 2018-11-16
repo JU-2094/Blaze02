@@ -13,11 +13,11 @@ func _ready():
 func _process(delta):
 	if intrud.get_name()=="Player":
 		follow_enemy(intrud)
-	if self.is_colliding():
-		var collider = self.get_collider()
+	if is_colliding():
+		var collider = get_collider()
 		if collider.get_name()=="Player":
-			emit_signal("follow",collider)
-		if  Input.is_action_pressed('ui_print'):
+			emit_signal("follow", intrud)
+		if Input.is_action_pressed('ui_print'):
 			print("collision with:",collider.get_name())
 	pass
 
@@ -29,13 +29,15 @@ func follow_enemy(enemy):
 	cast_to=intrudloc
 	pass
 
-
 #Function that recieves the intruder signal from the vision field of the enemy.
 func _on_Vision_intruder(enemy):
 	#print(location)
 	#print("tu estas aqui",get_node("../").get_transform().origin)
+	#if enemy.get_name() == "Player":
+	#	emit_signal("follow", enemy)
+	
 	intrud=enemy
-	print(intrud.get_name())
+	
 	pass # replace with function body
 
 #function that shows with whom object the raycast is colliding

@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 signal hit
 
@@ -57,3 +57,10 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+
+func _on_PlayerArea_area_entered(area):
+	#...?
+	
+	
+	pass # replace with function body

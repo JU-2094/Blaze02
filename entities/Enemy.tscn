@@ -15,45 +15,27 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 29.1029
+extents = Vector2( 10, 24.9613 )
 
 [sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="KinematicBody2D" index="0"]
 
 position = Vector2( 419.533, 323.612 )
 scale = Vector2( 1.01079, 1 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 1
-mode = 2
-mass = 1.0
-friction = 1.0
-bounce = 0.2
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
-speed = null
+speed = 150
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -66,12 +48,11 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0.00129861, 0.297264 )
 scale = Vector2( 1.37879, 1.01079 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Vision" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 modulate = Color( 0.714844, 0.161957, 0.161957, 1 )
 self_modulate = Color( 0.679688, 0.0823059, 0.0823059, 1 )
 position = Vector2( 0.885666, 0.33465 )
@@ -108,6 +89,8 @@ collision_mask = 1
 script = ExtResource( 4 )
 
 [connection signal="body_entered" from="Vision" to="Vision" method="_on_Vision_body_entered"]
+
+[connection signal="body_exited" from="Vision" to="." method="_on_Vision_body_exited"]
 
 [connection signal="intruder" from="Vision" to="RayCast2D" method="_on_Vision_intruder"]
 
