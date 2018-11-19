@@ -66,4 +66,6 @@ shape = SubResource( 3 )
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 
+[connection signal="area_exited" from="PlayerArea" to="." method="_on_PlayerArea_area_exited"]
+
 

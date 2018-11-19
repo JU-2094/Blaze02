@@ -15,7 +15,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 24.9613 )
@@ -48,7 +48,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0.00129861, 0.297264 )
 scale = Vector2( 1.37879, 1.01079 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Vision" type="Area2D" parent="." index="2"]
@@ -67,9 +67,6 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 3 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Visibility" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" index="0"]
 

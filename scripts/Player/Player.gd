@@ -4,6 +4,7 @@ signal hit
 
 export (int) var speed
 var screensize
+var isoverlay = false
 
 func _ready():
 	screensize = get_viewport_rect().size
@@ -12,13 +13,13 @@ func _ready():
 
 func _process(delta):
 	var velocity = Vector2()
-	if Input.is_action_pressed('ui_right'):
+	if Input.is_action_pressed('ui_right') or Input.is_key_pressed(KEY_D):
 		velocity.x += 1
-	if Input.is_action_pressed('ui_left'):
+	if Input.is_action_pressed('ui_left') or Input.is_key_pressed(KEY_A):
 		velocity.x -= 1
-	if Input.is_action_pressed('ui_up'):
+	if Input.is_action_pressed('ui_up') or Input.is_key_pressed(KEY_W):
 		velocity.y -= 1
-	if Input.is_action_pressed('ui_down'):
+	if Input.is_action_pressed('ui_down') or Input.is_key_pressed(KEY_S):
 		velocity.y += 1
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -26,7 +27,10 @@ func _process(delta):
 	else:
 		$AnimatedSprite.stop()
 	# Shortcut $AnimatedSprite --> get_node("AnimatedSprite")
-	position += velocity * delta
+	if not isoverlay:
+		position += velocity * delta
+	else:
+		position -= velocity * delta
 	position.x = clamp(position.x, 0, screensize.x)
 	position.y = clamp(position.y, 0, screensize.y)
 	
@@ -45,6 +49,7 @@ func _process(delta):
 # signal callback
 func _on_Player_body_entered(body):
 	#hide()
+	print("DUH ", body.get_name())
 	emit_signal("hit")
 	"""
 	By turning it off, we make sure we don’t trigger 
@@ -60,7 +65,11 @@ func start(pos):
 
 
 func _on_PlayerArea_area_entered(area):
-	#...?
-	
-	
-	pass # replace with function body
+	if area.get_name() != "Vision":
+		isoverlay = true
+	#if area.get_name() == "EnemyArea":
+	#	emit_signal("hit")
+
+
+func _on_PlayerArea_area_exited(area):
+	isoverlay = false
