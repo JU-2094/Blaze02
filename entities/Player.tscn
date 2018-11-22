@@ -1,54 +1,307 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/tmp_player.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sprites/Characters/Players/character.png" type="Texture" id=2]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="Animation" id=1]
 
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-_sections_unfolded = [ "Resource" ]
+resource_name = "carry_down"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 9, 12 ]
+}
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Animation" id=2]
+
+resource_name = "carry_left"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 60, 63 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "carry_right"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 26, 29 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "carry_up"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 43, 46 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "down"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 3 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "grab_down"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5, 7 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "grab_left"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 56, 58 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "grab_right"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 22, 24 ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "grab_up"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 39, 41 ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "left"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 51, 54 ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "right"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 17, 20 ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "up"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 34, 37 ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
-extents = Vector2( 26.9306, 34.9573 )
+extents = Vector2( 20.4198, 32.2809 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=14]
 
 custom_solver_bias = 0.0
 extents = Vector2( 9.7547, 36.038 )
 
 [node name="Player" type="KinematicBody2D"]
 
-position = Vector2( -0.5, 0 )
-scale = Vector2( 0.984375, 1 )
+position = Vector2( 64.6338, 139.081 )
+scale = Vector2( 0.761046, 0.690976 )
 input_pickable = false
 collision_layer = 3
 collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 speed = 300
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 1 )
-animation = "default"
-_sections_unfolded = [ "Pause", "Transform" ]
+position = Vector2( -0.581887, 4.4892 )
+scale = Vector2( 2.56177, 2.76329 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 17
+_sections_unfolded = [ "Animation", "Pause", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/carry_down = SubResource( 1 )
+anims/carry_left = SubResource( 2 )
+anims/carry_right = SubResource( 3 )
+anims/carry_up = SubResource( 4 )
+anims/down = SubResource( 5 )
+anims/grab_down = SubResource( 6 )
+anims/grab_left = SubResource( 7 )
+anims/grab_right = SubResource( 8 )
+anims/grab_up = SubResource( 9 )
+anims/left = SubResource( 10 )
+anims/right = SubResource( 11 )
+anims/up = SubResource( 12 )
+blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 2 )
+visible = false
+position = Vector2( 0, 5.96644 )
+scale = Vector2( 1, 0.986999 )
+shape = SubResource( 13 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PlayerArea" type="Area2D" parent="." index="2"]
 
+visible = false
+position = Vector2( 0.0865526, 6.08061 )
+scale = Vector2( 0.787164, 0.891962 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -62,7 +315,7 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 0.301227, 0 )
 scale = Vector2( 2.70246, 1 )
-shape = SubResource( 3 )
+shape = SubResource( 14 )
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 

@@ -15,17 +15,21 @@ func _process(delta):
 	var velocity = Vector2()
 	if Input.is_action_pressed('ui_right') or Input.is_key_pressed(KEY_D):
 		velocity.x += 1
+		$Sprite/AnimationPlayer.play("right")
 	if Input.is_action_pressed('ui_left') or Input.is_key_pressed(KEY_A):
 		velocity.x -= 1
+		$Sprite/AnimationPlayer.play("left")
 	if Input.is_action_pressed('ui_up') or Input.is_key_pressed(KEY_W):
 		velocity.y -= 1
+		$Sprite/AnimationPlayer.play("up")
 	if Input.is_action_pressed('ui_down') or Input.is_key_pressed(KEY_S):
 		velocity.y += 1
+		$Sprite/AnimationPlayer.play("down")
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		#$AnimatedSprite.play()
 	else:
-		$AnimatedSprite.stop()
+		 $Sprite/AnimationPlayer.play("down")
 	# Shortcut $AnimatedSprite --> get_node("AnimatedSprite")
 	if not isoverlay:
 		position += velocity * delta
@@ -36,12 +40,12 @@ func _process(delta):
 	
 	# Choosing animation
 	if velocity.x != 0:
-		#$AnimatedSprite.animation = "right"
+		#$Sprite/AnimationPlayer.play("right")
 		#$AnimatedSprite.flip_v = false
 		#$AnimatedSprite.flip_h = velocity.x < 0
 		pass
 	elif velocity.y != 0:
-		#$AnimatedSprite.animation = "up"
+		#$Sprite/AnimationPlayer.play("up")
 		#$AnimatedSprite.flip_v = velocity.y > 0
 		pass
 		

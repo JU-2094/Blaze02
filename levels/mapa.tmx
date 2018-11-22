@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="16" tileheight="16" nextobjectid="50">
+ <tileset firstgid="1" source="overworld.tsx"/>
+ <layer name="Tile Layer 1" width="64" height="64">
+  <data encoding="base64" compression="zlib">
+   eJytlMtx40AQxZSO8lH+sewefHCxpgH0yAeWbZkcvg+ePq/X6/3/+vxc718/34//fR6fne6ZnvkM952uz+F6nvG83/QWjaf7yPNJw+Tz9PvzPVPOU2an++z3TX6Trum95JtYKHrrVTokf5bhDUvWPz1TtFNGpP8mY/JibG581+0ZBxvOqZ/K2uSvPF82Vvg0X6Wn6Z32nVQ3Tz0WHozjzf5KNsaRdWU+rMeakXFuDNEui65p68YNfRcQf9P7ykU8Ft4tK+qdep3eYx1bV5ajvbNwSj1sei38Va/GG/FKXmq3ZUc3nU/smOfCceW3ZDOxttkTbbbmMv1/u2vihvKg3dqZZbfEAOVof9/yfbqoX7uXuKzbMia/YYd63z5vrNhWyn6pZ8p+03llrezMtJWuiAnKp7Bp2mmD5Jfyuvl/2f3N5mxfp/eVbdUdUK7lvMoe8VJ3U7xOmRf/1gvpokw2GU3epv9TZhv9xMO2z80528wpm5vNERuk7TZLYvKm77KlaUO0E9JX2S166fzaffn5Tb/b/VV+jU/bSuneNE0ZmY7K2qTTMjAWtzkbI8TW1D9twhinPUzfGTWbzZm0O+qR9Nee6Kedbdx+o7O+p2ZafdQdG4emrXS8yYr2ZLspvJTnbrutV/FQ/FpW1DnlNO1se17py5gm/q1X0mX9kEfjn/r460wmPotXu/fk0bxVRihDOme7UeOnnmObK++zvEyfeTCNt5ubdlXOLbqsv42G0kHRaDqpr9N95GOjiXZrXiaN0w6pY9Nct097L9nc7KZoM74pR+p8yx3lU7Ojzkj/N2wUT7UD21rJ0vxNu647qdulc6ifsqWyf+PCdmos0xnlrKlX01X01T0WDZsM7czCoO1l8lq02Od2HrEycU8ZGgd0Tu14y+zEGPWyzWKz3eLh5Ik2XTLaclqYnPZnDJt34/Kv+CR+yMfke3pX4bz0ULgw3aV7y6V0VzIg78SJ7bKyU/OvnZc8iZOaq2me8ix5lRxv+Sx+iL/Jf+Gi8jXlecqVvmfsu6HuuXBuDJ6erR6LXnpmym3q2bgn5grTRU/JrXRvz1FW09m2d9vf1HFhiHqn95HWzX7K9iuDlZlJb9G68WuMb/0Zc1PnpIu8kYfaE51dd1q9FG/ky/4u2yV+TK89M3FQMyr7rYyd/JfMiqZyxrRbYs/Ynbgp502f3WRAPRi3k/bCCDFBeUzeJoZIz1bD5NHeVfgqWozD03sLW2Wz225OXJY+J49T3vRZ2STtw9g1f7bNwsJGs7FRciBGN5yUfW02OmVdPt/ucdOleZ96+wcJXOKj
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="64" height="64">
+  <data encoding="base64" compression="zlib">
+   eJztl9lNw0AURSfYEKAB4AMKYGuB8AEFsLUAtEAgBbDTCjutQFgLoAbufFggS3g0mvGgmHOkIz9FGt13P+LFGAAAAAAAAAAAAAAA8GFCTgY4lX7lqCzJaTkjOx4WZ5YT7VkXtv+KXDV+/YszTejfCZD+g00T+x9mxhzJY3lSMZ9mcfr75KXgUjlX8lreOGbf+15Zex90ZRTzbaL+j8p5kn35XDHb62ce1t+e72ffVuW9JOo/pJ0ymcthx+z73C9r3wNcGcU8ktff3TKrnDk5Lxccc4z/vyujmBcT9V9TzrrckJsV81ak/j55KdhTTlfuy4Mfc/n3XqT+v+WV516i/j408fnvA/35/vvP33/bcifA3fQrR+VMngd4kX7lqNzJ+wAf0q8clVf5FuC7/Kh/zdpot4wZDXBMjrf+ugUAAAAAAAAAAMDg8gV1srl9
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="64" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEKAkEMBdBZWEu19x5q7132NnobLdWL2KrXMN1uMYq6RVh4Dz4MZAJJm1IAAAAAAH63b0s5tHn92Y4x+2nE/GP7s91Gzj62P1s3mP8cuUSub/7W6t3E9x+6Rx6R5591gGyr7AGS7bIHSGZ/APjM/ae/38ybUhaRZVP/W6tP/f7Tzvr3OvbaRLZv9q/Vh/0AAAAAAMD3XkwkGUk=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="36" gid="397" x="512.182" y="496" width="16" height="16"/>
+  <object id="42" gid="356" x="496.182" y="479.818" width="16" height="16"/>
+  <object id="43" gid="357" x="512.182" y="479.818" width="16" height="16"/>
+  <object id="44" gid="396" x="496.182" y="496.182" width="16" height="16"/>
+  <object id="49" x="501.75" y="465.875" width="20.75" height="25.625"/>
+ </objectgroup>
+</map>

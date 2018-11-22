@@ -1,31 +1,116 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Enemy/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/tmp_enemy.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sprites/Characters/Enemies /log.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Enemy/vision.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Enemy/RayCast2D.gd" type="Script" id=4]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="Animation" id=1]
 
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-_sections_unfolded = [ "Resource" ]
+resource_name = "down"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 3 ]
+}
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Animation" id=2]
+
+resource_name = "left"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 18, 21 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "right"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 12, 15 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "sleep"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 4, 10, 16, 22 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "up"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 6, 9 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 24.9613 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Enemy" type="KinematicBody2D" index="0"]
+[node name="Enemy" type="KinematicBody2D"]
 
 position = Vector2( 419.533, 323.612 )
 scale = Vector2( 1.01079, 1 )
@@ -37,22 +122,40 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 speed = 150
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 1 )
-animation = "default"
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -0.370915, 1.09065 )
+scale = Vector2( 1.83332, 2.14059 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 6
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/down = SubResource( 1 )
+anims/left = SubResource( 2 )
+anims/right = SubResource( 3 )
+anims/sleep = SubResource( 4 )
+anims/up = SubResource( 5 )
+blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 position = Vector2( 0.00129861, 0.297264 )
 scale = Vector2( 1.37879, 1.01079 )
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Vision" type="Area2D" parent="." index="2"]
 
+visible = false
 modulate = Color( 0.714844, 0.161957, 0.161957, 1 )
 self_modulate = Color( 0.679688, 0.0823059, 0.0823059, 1 )
 position = Vector2( 0.885666, 0.33465 )
@@ -74,11 +177,12 @@ modulate = Color( 0.664062, 0.280151, 0.280151, 1 )
 self_modulate = Color( 0.550781, 0.141998, 0.141998, 1 )
 position = Vector2( 5.73708, 3.41044 )
 scale = Vector2( 11.3061, 9.817 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="3"]
 
+visible = false
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 50 )
