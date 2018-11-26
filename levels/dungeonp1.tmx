@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="16" tileheight="16" nextobjectid="5">
+ <tileset firstgid="1" name="dungeon-prison-theme-tilesheet" tilewidth="16" tileheight="16" tilecount="288">
+  <image source="../assets/Sprites/Worlds/dungeon-prison-theme-tilesheet.png" width="256" height="288"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzNVkFSxCAQ5OR39Af6A71w1ksgVBn1FEiVUZ/mzaNfkpTTboNgEjcpPXQNzAzTM5Ctba+U8hE2Qke4iEH28Fva9xJHniHftA4RrcRH2TfkR8zI2orVUj8Qv5ZYL35D4JrY93LOiB2kZiO1tOR44uQcJ7ahPgc6ozMeJ2jprKO+jZxzdA99Niss6vQCzMnn0LMWfuRhBsTRB6ClTiBOS/uY/8q9+MyH9WQ9+YC8tqfcQLm8x/rtSNxuUGMPPBV8pxFnsn6s+IG7yvoYnEdcZL6x4t/jHS4jrlb4a+jEvgvm8kex1xE3hXjNP4ecv/ZOeOv7iIdCb/CPK/lrPDU8R7ws8JfutfS+a7/LufcaF+b9FnvV/QlLfhf8bt0GnEu+o67C/19R+ta2uKuTPwZrFeiOIfOHz//PLw3UqFQLQb9M+dAhQaVayFCM8ydAc4CfNV2T8eF/3qlUl+E8fNAg4PBUG3NBA7LOynUTa8XhcB9JTzwDtBCvrUr7COqgnRxZaE/UbIgT98Va06jvmrQl/pbegvsHB3RuPju/pVWpPmTuQPFWpRoZc2FmS3w4O+0/AAClwzA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAdSKeh2aOAOsCVgcFhIPFA+3+wgB4g7h1A++cA8dwBtH8NEK+FsmsH0B3I4DyUzqWB2dVEqKkhwTx0tdRIT+cJK8GpFj09kRqGdQykpYMcND5yemIg0SxcAF94EIorUsISF0D3I70BPf1ATp5D15NHhhn0Bm4M4DoYTrtAaZgYDLug0cjirkh68fGRzYTxR8HIBgC0YS0l
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="1" x="0.666667" y="0" width="512" height="80"/>
+  <object id="4" x="1.33333" y="306.667" width="511.333" height="77.3333"/>
+ </objectgroup>
+</map>

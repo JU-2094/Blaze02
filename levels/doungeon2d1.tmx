@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" nextobjectid="23">
+ <tileset firstgid="1" name="dungeon" tilewidth="32" tileheight="32" tilecount="64">
+  <image source="../assets/Sprites/Worlds/dungeon.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzFlVEOwzAIQ3uIJEfo/Y+4fSwSerIzp6vWD9Qli8AYMOdxHOcF628bb2sfu+LjFxvA8O/4M/bE8VT8u/kfsCa4Vv81c9fL7wQn/dR43cTrxYi14knqVH024X+VKzHybZI/cddz5bTGcLnznORP3wMxFa/Eu6pTEp+zpTgnH6wXc5jfNL7roQbjLKieqG92+t/1+Co/x988J/1HPp0vGjmjnzR/V1PO8kqPyJXTaTVvzL0hXhdf8sa8lU/Vw07T2NtOe9Scull1/ljPcWhcu7y4WVFzomZfvXE96vSQ+bv+++ZTYVP8MI90/pRf10+uBkOcd/eP61mVn7onlkR/Xb6rnlAYVS/t6L+qp8KmdoLiKd0/1NTVnmE8pSkVb6q/ai5ZT3dH/alvdvhfzbLSOadpFUO6fzk/ai+yP9Veor+0/6lBrq6Kb2r+zvylxv1wl9/UdufqbmN9n4hfa3zVzws9e216
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztl0EOgjAQRScKEiNIoivc6ULY6RE8CkfrUTyav4smQ1NbRTo14iQvmULa10xgCkTvx9nD2NBzG7CLzMHj34AM5GAFCs84c1CwPLdyM38d8JegAltQe8alg5rllZWb+SF/CzoiFQOsrUL+7sn9KQJr37/Fb78vc/abXNpPLE/l571Two8eqFzuFH4dvDfvBfy6/tx/oWG/uwr5Pz0vf8WP+t9wvTeg/r2kf8FYktzz5/pukuo/qf3kcEv7+R7m6rfj70/vb1kvnJo24D/SsB/G4DSudIPw/X/GPtdeccfex5R7eADhI1Fr
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="9" x="119" y="52" width="787" height="46"/>
+  <object id="10" x="896" y="53" width="16" height="854"/>
+  <object id="13" x="115" y="896" width="330" height="17"/>
+  <object id="14" x="579" y="898" width="332" height="13"/>
+  <object id="18" x="432" y="900" width="180" height="12"/>
+  <object id="19" x="114.667" y="582.667" width="12" height="329.333"/>
+  <object id="20" x="2.66667" y="578.667" width="122.667" height="13.3333"/>
+  <object id="21" x="-2.66667" y="433.333" width="129.333" height="12"/>
+  <object id="22" x="113.333" y="61.3333" width="13.3333" height="382.667"/>
+ </objectgroup>
+</map>

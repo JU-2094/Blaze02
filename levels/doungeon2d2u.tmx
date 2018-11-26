@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" nextobjectid="26">
+ <tileset firstgid="1" name="dungeon" tilewidth="32" tileheight="32" tilecount="64">
+  <image source="../assets/Sprites/Worlds/dungeon.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzFlVEOwzAIQ3uIJEfo/Y+4fSwSerIzp6vWD9Qli8AYMOdxHOcF628bb2sfu+LjFxvA8O/4M/bE8VT8u/kfsCa4Vv81c9fL7wQn/dR43cTrxYi14knqVH024X+VKzHybZI/cddz5bTGcLnznORP3wMxFa/Eu6pTEp+zpTgnH6wXc5jfNL7roQbjLKieqG92+t/1+Co/x988J/1HPp0vGjmjnzR/V1PO8kqPyJXTaTVvzL0hXhdf8sa8lU/Vw07T2NtOe9Scull1/ljPcWhcu7y4WVFzomZfvXE96vSQ+bv+++ZTYVP8MI90/pRf10+uBkOcd/eP61mVn7onlkR/Xb6rnlAYVS/t6L+qp8KmdoLiKd0/1NTVnmE8pSkVb6q/ai5ZT3dH/alvdvhfzbLSOadpFUO6fzk/ai+yP9Veor+0/6lBrq6Kb2r+zvylxv1wl9/UdufqbmN9n4hfa3zVzws9e216
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztl98KgjAUh0dYIVlBSFBX1YV65x7JR+lRfJQexUfpN2JwWmM7rfxT7MCH0+2cT4bOKURY1EKcSLsNLPMUB7BjUpE8tG+CmXd0+FcgAXOwAEvHuemn/XpMYslPPf4MrMEGbB3npp/26zGZJd/nLx/1Wh8S4/YgB5IxXoHarc9fOfo/DTVP0R/9/+jPR/ZzYkr+ghw1yi/79V9Tw2n6+4xf8GP+myH9NAZ4/sb2T+b9i/7oj/5XP/bITcVAr5NqD452x8kpPf4zmDEx/z+4eZe3ZswehcWvr9vW1W+Gru3z93kfqm5NvpNod6G17h3QR4U=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="15" x="898.667" y="56" width="9.33333" height="854.667"/>
+  <object id="16" x="116" y="56" width="12" height="852"/>
+  <object id="17" x="117.333" y="897.333" width="329.333" height="12"/>
+  <object id="18" x="578.667" y="900" width="330.667" height="13.3333"/>
+  <object id="19" x="116" y="53.3333" width="329.333" height="41.3333"/>
+  <object id="20" x="577.333" y="56" width="332" height="40"/>
+  <object id="21" x="436" y="0" width="12" height="96"/>
+  <object id="22" x="577.333" y="4" width="12" height="90.6667"/>
+  <object id="24" x="432" y="900" width="14.6667" height="125.333"/>
+  <object id="25" x="578.667" y="904" width="10.6667" height="121.333"/>
+ </objectgroup>
+</map>

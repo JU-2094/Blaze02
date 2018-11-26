@@ -2,11 +2,13 @@
 
 importer="vnen.tiled_importer"
 type="PackedScene"
-valid=false
+path="res://.import/doungeon2d1u.tmx-b33a9a96086fdccaaa139ca98db99d61.scn"
 
 [deps]
 
-source_file="res://levels/mapa.tmx"
+source_file="res://levels/doungeon2d1u.tmx"
+dest_files=[ "res://.import/doungeon2d1u.tmx-b33a9a96086fdccaaa139ca98db99d61.scn" ]
+
 [params]
 
 custom_properties=true

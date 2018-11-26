@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" nextobjectid="17">
+ <tileset firstgid="1" name="dungeon" tilewidth="32" tileheight="32" tilecount="64">
+  <image source="../assets/Sprites/Worlds/dungeon.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzFlVEOwzAIQ3uIJEfo/Y+4fSwSerIzp6vWD9Qli8AYMOdxHOcF628bb2sfu+LjFxvA8O/4M/bE8VT8u/kfsCa4Vv81c9fL7wQn/dR43cTrxYi14knqVH024X+VKzHybZI/cddz5bTGcLnznORP3wMxFa/Eu6pTEp+zpTgnH6wXc5jfNL7roQbjLKieqG92+t/1+Co/x988J/1HPp0vGjmjnzR/V1PO8kqPyJXTaTVvzL0hXhdf8sa8lU/Vw07T2NtOe9Scull1/ljPcWhcu7y4WVFzomZfvXE96vSQ+bv+++ZTYVP8MI90/pRf10+uBkOcd/eP61mVn7onlkR/Xb6rnlAYVS/t6L+qp8KmdoLiKd0/1NTVnmE8pSkVb6q/ai5ZT3dH/alvdvhfzbLSOadpFUO6fzk/ai+yP9Veor+0/6lBrq6Kb2r+zvylxv1wl9/UdufqbmN9n4hfa3zVzws9e216
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlk0OgjAQRkcFCREkcacrdSHd6ZE8ikfpUTiaH4smY0N/VChN6CQvmYZMXzrApETfx83Cr9HXHsFhYk4W/w5kIAdbUFjW2QAFy3MtV/Wlw1+BGuxBY1lXAzQsr7Vc1bv8LRBEcgqwt3T5heH5GIG9u1j8+v+yZL/KQ/uJ5XP5+ewM4ccMlKbZnfyT+1/Jv2i/8fujQP5ywB3az4PP4eSf7/6T/HH4cUd+Cg8eQNUh73xqWof/AtYebOizT/25Vp61V/92Wfuk+23nGjti8N/Z+z//4X8DN1lRwg==
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="9" x="119" y="52" width="787" height="46"/>
+  <object id="10" x="896" y="53" width="16" height="854"/>
+  <object id="11" x="114" y="50" width="13" height="861"/>
+  <object id="13" x="115" y="896" width="330" height="17"/>
+  <object id="14" x="579" y="898" width="332" height="13"/>
+  <object id="15" x="438" y="896" width="10" height="133"/>
+  <object id="16" x="576" y="902" width="12" height="126"/>
+ </objectgroup>
+</map>
