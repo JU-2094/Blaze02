@@ -82,8 +82,8 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 
 resource_name = "down"
-length = 1.0
-loop = true
+length = 0.5
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -92,7 +92,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0, 3 ]
@@ -177,8 +177,8 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=10]
 
 resource_name = "left"
-length = 1.0
-loop = true
+length = 0.5
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -187,7 +187,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 51, 54 ]
@@ -196,8 +196,8 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=11]
 
 resource_name = "right"
-length = 1.0
-loop = true
+length = 0.5
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -206,7 +206,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 17, 20 ]
@@ -215,8 +215,8 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=12]
 
 resource_name = "up"
-length = 1.0
-loop = true
+length = 0.5
+loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -225,7 +225,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 34, 37 ]
@@ -234,38 +234,36 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
-extents = Vector2( 18.4343, 29.0343 )
+extents = Vector2( 20.4198, 32.2809 )
 
 [sub_resource type="RectangleShape2D" id=14]
 
 custom_solver_bias = 0.0
-extents = Vector2( 8.80589, 31.9999 )
+extents = Vector2( 9.7547, 36.038 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 64.6338, 139.081 )
 scale = Vector2( 0.761046, 0.690976 )
 input_pickable = false
 collision_layer = 3
 collision_mask = 3
-collision/safe_margin = 0.001
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
-speed = 20
+speed = 250
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( -0.581871, 4.4892 )
 scale = Vector2( 2.56177, 2.76329 )
 texture = ExtResource( 2 )
 vframes = 8
 hframes = 17
-region_rect = Rect2( 1, 6, 63, 22 )
-_sections_unfolded = [ "Animation", "Pause", "Transform" ]
+_sections_unfolded = [ "Animation", "Pause", "Region", "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -290,22 +288,25 @@ anims/left = SubResource( 10 )
 anims/right = SubResource( 11 )
 anims/up = SubResource( 12 )
 blend_times = [  ]
+_sections_unfolded = [ "Pause", "Playback Options" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 5.96643 )
+visible = false
+position = Vector2( 0, 5.96644 )
 scale = Vector2( 1, 0.986999 )
 shape = SubResource( 13 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PlayerArea" type="Area2D" parent="." index="2"]
 
-position = Vector2( 0.0865555, 6.08061 )
+visible = false
+position = Vector2( 0.0865526, 6.08061 )
 scale = Vector2( 0.787164, 0.891962 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
-gravity = 0.0
-linear_damp = 0.0
+gravity = 98.0
+linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
@@ -313,34 +314,10 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea" index="0"]
 
+visible = false
 position = Vector2( 0.301227, 0 )
 scale = Vector2( 2.70246, 1 )
 shape = SubResource( 14 )
-
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
-
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 
