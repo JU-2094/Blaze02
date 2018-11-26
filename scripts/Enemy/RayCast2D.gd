@@ -10,7 +10,7 @@ func _ready():
 	pass
 
 #Function that is called every frame
-func _process(delta):
+func _physics_process(delta):
 	if intrud.get_name()=="Player":
 		follow_enemy(intrud)
 	if is_colliding():
@@ -34,8 +34,7 @@ func _on_Vision_intruder(enemy):
 	#print(location)
 	#print("tu estas aqui",get_node("../").get_transform().origin)
 	#if enemy.get_name() == "Player":
-	#	emit_signal("follow", enemy)
-	
+		#emit_signal("follow", enemy)
 	intrud=enemy
 	
 	pass # replace with function body

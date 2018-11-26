@@ -8,11 +8,12 @@ var direction = Vector2()
 func _ready():
 	pass
 
-func _process(delta):	
+func _physics_process(delta):	
 	if isfollow:
 		enemydirection()
 		isfollow = false
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_slide(velocity, Vector2(0,0))
 
 func _on_RayCast2D_follow(player):
 	isfollow = true

@@ -103,7 +103,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 24.9613 )
+extents = Vector2( 9.20352, 22.0404 )
 
 [sub_resource type="CircleShape2D" id=7]
 
@@ -117,13 +117,14 @@ scale = Vector2( 1.01079, 1 )
 input_pickable = false
 collision_layer = 2
 collision_mask = 1
-collision/safe_margin = 0.08
+collision/safe_margin = 0.001
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
 speed = 150
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.370915, 1.09065 )
 scale = Vector2( 1.83332, 2.14059 )
 texture = ExtResource( 2 )
@@ -147,24 +148,22 @@ blend_times = [  ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
-position = Vector2( 0.00129861, 0.297264 )
+position = Vector2( -0.234009, 3.86462 )
 scale = Vector2( 1.37879, 1.01079 )
 shape = SubResource( 6 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Vision" type="Area2D" parent="." index="2"]
 
-visible = false
 modulate = Color( 0.714844, 0.161957, 0.161957, 1 )
 self_modulate = Color( 0.679688, 0.0823059, 0.0823059, 1 )
 position = Vector2( 0.885666, 0.33465 )
 scale = Vector2( 1.11211, 1.17933 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
 collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
@@ -182,7 +181,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="3"]
 
-visible = false
 enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 50 )

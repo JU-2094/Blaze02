@@ -12,14 +12,18 @@
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 972.043, 304.565 )
+collision_layer = 1
+collision_mask = 1
+speed = 70
 
 [node name="Enemy" parent="." index="2" instance=ExtResource( 3 )]
 
+collision/safe_margin = 1.0
+
 [node name="BOX" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 644.817, 337.816 )
+position = Vector2( 826.817, 247.816 )
 scale = Vector2( 1, 0.858619 )
-collision_mask = 2
 _sections_unfolded = [ "Collision", "Pickable" ]
 
 

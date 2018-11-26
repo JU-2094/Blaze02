@@ -31,10 +31,8 @@ func _process(delta):
 	else:
 		 $Sprite/AnimationPlayer.play("down")
 	# Shortcut $AnimatedSprite --> get_node("AnimatedSprite")
-	if not isoverlay:
-		position += velocity * delta
-	else:
-		position -= velocity * delta
+	move_and_slide(velocity, Vector2(0,0))
+	#position += velocity * delta
 	position.x = clamp(position.x, 0, screensize.x)
 	position.y = clamp(position.y, 0, screensize.y)
 	

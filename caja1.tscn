@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Overworld.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14.529, 13.8819 )
+
+[node name="49" type="RigidBody2D"]
+
+editor/display_folded = true
+position = Vector2( 514.681, 518.324 )
+scale = Vector2( 0.364034, 0.481259 )
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+mode = 1
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision", "Pickable" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -0.760197, -2.39301 )
+scale = Vector2( 2.49356, 2.13768 )
+shape = SubResource( 1 )
+
+[node name="42" type="Sprite" parent="." index="1"]
+
+position = Vector2( -43.912, -0.0218506 )
+scale = Vector2( 2.74699, 2.07788 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -16 )
+region_enabled = true
+region_rect = Rect2( 560, 128, 16, 16 )
+region_filter_clip = true
+
+[node name="43" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0.039917, 1.10095 )
+scale = Vector2( 2.74699, 2.07788 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -16 )
+region_enabled = true
+region_rect = Rect2( 576, 128, 16, 16 )
+region_filter_clip = true
+
+[node name="36" type="Sprite" parent="." index="3"]
+
+position = Vector2( 0.039917, 33.6025 )
+scale = Vector2( 2.74699, 2.07788 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -16 )
+region_enabled = true
+region_rect = Rect2( 576, 144, 16, 16 )
+region_filter_clip = true
+
+[node name="44" type="Sprite" parent="." index="4"]
+
+position = Vector2( -43.912, 33.9806 )
+scale = Vector2( 2.74699, 2.07788 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -16 )
+region_enabled = true
+region_rect = Rect2( 560, 144, 16, 16 )
+region_filter_clip = true
+
+

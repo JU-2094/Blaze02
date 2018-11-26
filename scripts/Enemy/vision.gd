@@ -21,9 +21,6 @@ func _on_Vision_body_entered(body):
 	#print("pepapig"+body.get_name())
 	var name= body.get_name()
 	intrud = body.get_transform().origin
-	if  name =="Player" :
-		emit_signal("intruder",body)
-		print("see you:",body.name)
-	else :
-		print("see you:",body.name)
+	emit_signal("intruder",body)
+	print("see you:",body.name)
 	pass # replace with function body

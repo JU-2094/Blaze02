@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/NPC_test.png-2ff653578aea827b3ee882e45e7942c9.stex"
+path="res://.import/Hero.png-b4925e56ef5c69b53af088a0dbd97757.stex"
 
 [deps]
 
-source_file="res://assets/Sprites/Characters/Players/NPC_test.png"
-dest_files=[ "res://.import/NPC_test.png-2ff653578aea827b3ee882e45e7942c9.stex" ]
+source_file="res://assets/Sprites/Worlds/Hero.png"
+dest_files=[ "res://.import/Hero.png-b4925e56ef5c69b53af088a0dbd97757.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
