@@ -39,16 +39,16 @@ position = Vector2( 1022.15, 3.05176e-05 )
 
 [node name="Player" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 87.2439, 255.146 )
+position = Vector2( 513.821, 268.712 )
 
 [node name="Area2D" parent="." index="4" instance=ExtResource( 3 )]
 
-position = Vector2( 11.2356, 276.32 )
+position = Vector2( 1012.11, 280.842 )
 scale = Vector2( 1, 1.52502 )
 
 [node name="Area2D2" parent="." index="5" instance=ExtResource( 3 )]
 
-position = Vector2( 1013.62, 273.871 )
+position = Vector2( 14.25, 278.393 )
 scale = Vector2( 1, 1.64865 )
 script = SubResource( 1 )
 

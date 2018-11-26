@@ -39,7 +39,7 @@ position = Vector2( 1023.58, 0 )
 
 [node name="Player" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 65.732, 264.963 )
+position = Vector2( 536.724, 273.314 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 
 [node name="Area2D" parent="." index="4" instance=ExtResource( 3 )]
