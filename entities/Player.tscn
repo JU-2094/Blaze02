@@ -443,6 +443,7 @@ editor_draw_drag_margin = false
 
 [node name="Bomb" parent="." index="4" instance=ExtResource( 3 )]
 
+visible = false
 position = Vector2( 0, 20 )
 scale = Vector2( 1.75086, 1.75086 )
 collision_layer = 3

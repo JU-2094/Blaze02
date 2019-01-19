@@ -188,7 +188,7 @@ func _on_AnimationBomb_finished(anim_name):
 		$Bomb.position.x = 0
 		$Bomb.position.y = 0
 		$Bomb/AnimationPlayer.stop()
-		
+		items -= 1
 		state_item = 0
 		lock = 0
 
