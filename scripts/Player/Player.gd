@@ -9,6 +9,7 @@ var items
 var state_item
 var orientation
 var screen_size = OS.get_real_window_size()
+var lock
 
 func _ready():
 	var canvas_transform = get_viewport().get_canvas_transform()
@@ -18,6 +19,7 @@ func _ready():
 	# Todo get struct of current items.. design it later
 	# For know will be the number of bombs available
 	items = 10
+	lock = 0
 	# this avoid the user to be visible when the game starts
 	#hide()  
 
@@ -50,16 +52,14 @@ func _process(delta):
 			state_item = 1 
 		elif state_item == 2:
 			state_item = 4
-	
+		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		
 	# Shortcut $AnimatedSprite --> get_node("AnimatedSprite")
-	if state_item != 1:
+	if state_item == 0 or state_item == 2:
 		move_and_slide(velocity, Vector2(0,0))
-	#position += velocity * delta
-	#position.x = clamp(position.x, 0, screensize.x)
-	#position.y = clamp(position.y, 0, screensize.y)
+	
 	set_anim(state)
 
 # signal callback
@@ -159,24 +159,41 @@ func set_anim(state):
 						if $Sprite/AnimationPlayer.current_animation != "carry_up":
 							$Sprite/AnimationPlayer.play("carry_up")
 			4:
-				match orientation:
-					1:
-						$Bomb/AnimationPlayer.play("throw_bomb_right")
-					2:
-						$Bomb/AnimationPlayer.play("throw_bomb_left")
-					4:
-						$Bomb/AnimationPlayer.play("throw_bomb_up")
-					8:
-						$Bomb/AnimationPlayer.play("throw_bomb_down")
-					_:
-						$Bomb/AnimationPlayer.play("throw_bomb_up")
-				state_item = 0
-
+				if lock == 0:
+					$Sprite/AnimationPlayer.stop()
+					match orientation:
+						0:
+							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_down":
+								$Bomb/AnimationPlayer.play("throw_bomb_down")
+						1:
+							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_right":
+								$Bomb/AnimationPlayer.play("throw_bomb_right")
+						2:
+							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_left":
+								$Bomb/AnimationPlayer.play("throw_bomb_left")
+						3:
+							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_up":
+								$Bomb/AnimationPlayer.play("throw_bomb_up")
+						4:
+							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_down":
+								$Bomb/AnimationPlayer.play("throw_bomb_down")
+						_:
+							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_up":
+								$Bomb/AnimationPlayer.play("throw_bomb_up")
 
 
 func _on_AnimationBomb_finished(anim_name):
-	#if anim_name != "up" and state_item != 2:
-	#	state_item = 0
-	#	$Bomb.visible = false
-	pass
+	if anim_name != "bomb_up":
+		$Bomb.visible = false
+		$Bomb.position.x = 0
+		$Bomb.position.y = 0
+		$Bomb/AnimationPlayer.stop()
+		
+		state_item = 0
+		lock = 0
 
+
+
+func _on_Bomb_animation_started(anim_name):
+	if anim_name != "bomb_up":
+		lock = 1
