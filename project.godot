@@ -14,6 +14,12 @@ config/name="Blaze02"
 run/main_scene="res://levels/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+playerdata="*res://scripts/data/playerdata.gd"
+enemydata="*res://scripts/data/enemydata.gd"
+worlddata="*res://scripts/data/worlddata.gd"
+
 [display]
 
 window/stretch/mode="2d"

@@ -4,8 +4,7 @@ signal hit
 
 export (int) var speed
 var screensize
-var isoverlay = false
-var items
+var isoverlay = false 
 var state_item
 var orientation
 var screen_size = OS.get_real_window_size()
@@ -18,7 +17,6 @@ func _ready():
 	orientation = 0
 	# Todo get struct of current items.. design it later
 	# For know will be the number of bombs available
-	items = 10
 	lock = 0
 	# this avoid the user to be visible when the game starts
 	#hide()  
@@ -48,10 +46,14 @@ func _process(delta):
 		orientation = 4
 		
 	if Input.is_key_pressed(KEY_SPACE):
+		print(playerdata.items["bombs"])
 		if state_item == 0:
 			state_item = 1 
 		elif state_item == 2:
 			state_item = 4
+	if Input.is_key_pressed(KEY_B):
+		print(worlddata.prev_scene.get_name())
+		print(worlddata.current_scene.get_name())
 		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -93,7 +95,7 @@ func _on_PlayerArea_area_exited(area):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "grab_down":
-		if items > 0:
+		if playerdata.items["bombs"] > 0:
 			state_item = 2
 		else:
 			state_item = 0
@@ -129,7 +131,7 @@ func set_anim(state):
 		match state_item:
 			1:
 				if $Sprite/AnimationPlayer.current_animation != "grab_down":
-					if items > 0:
+					if playerdata.items["bombs"] > 0:
 						$Bomb.visible = true
 						$Bomb/AnimationPlayer.play("bomb_up")
 					$Sprite/AnimationPlayer.play("grab_down")
@@ -188,7 +190,9 @@ func _on_AnimationBomb_finished(anim_name):
 		$Bomb.position.x = 0
 		$Bomb.position.y = 0
 		$Bomb/AnimationPlayer.stop()
-		items -= 1
+		playerdata.items["bombs"] -=1
+		playerdata.items["coins"] +=1
+		#items -= 1
 		state_item = 0
 		lock = 0
 

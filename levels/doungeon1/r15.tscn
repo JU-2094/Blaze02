@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/t1-1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/sceneteleport.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -21,7 +22,8 @@ func _on_Area2D_body_entered(body):
 	var file = File.new()
 	# rewrite previous data
 	file.open(\"res://data/game.dat\", file.WRITE)
-	get_tree().change_scene(\"res://levels/doungeon1/r5.tscn\")
+	#get_tree().change_scene(\"res://levels/doungeon1/r5.tscn\")
+	worlddata.goto_scene(\"res://levels/doungeon1/r5.tscn\")
 	pass # replace with function body
 "
 
@@ -39,11 +41,11 @@ position = Vector2( 1022.15, 3.05176e-05 )
 
 [node name="Player" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 513.821, 268.712 )
+position = Vector2( 510.806, 274.741 )
 
 [node name="Area2D" parent="." index="4" instance=ExtResource( 3 )]
 
-position = Vector2( 1012.11, 280.842 )
+position = Vector2( 1524.61, 285.364 )
 scale = Vector2( 1, 1.52502 )
 
 [node name="Area2D2" parent="." index="5" instance=ExtResource( 3 )]
@@ -51,5 +53,7 @@ scale = Vector2( 1, 1.52502 )
 position = Vector2( 14.25, 278.393 )
 scale = Vector2( 1, 1.64865 )
 script = SubResource( 1 )
+
+[node name="HUD" parent="." index="6" instance=ExtResource( 4 )]
 
 

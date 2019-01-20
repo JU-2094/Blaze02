@@ -337,7 +337,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 0, -120 ) ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 93.2728, 125.572 )
 scale = Vector2( 0.761046, 0.690976 )
@@ -351,6 +351,7 @@ speed = 250
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.581871, 4.4892 )
 scale = Vector2( 2.56177, 2.76329 )
 texture = ExtResource( 2 )

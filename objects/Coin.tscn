@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 0, 3 ]
 }
 
-[node name="Coin" index="0" instance=ExtResource( 1 )]
+[node name="Coin" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
