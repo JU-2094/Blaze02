@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal hit
 
 export (int) var speed
+var anim_obj 
 var screensize
 var isoverlay = false 
 var state_item
@@ -14,17 +15,19 @@ func _ready():
 	var canvas_transform = get_viewport().get_canvas_transform()
 	screensize = get_viewport_rect().size
 	state_item = 0
-	orientation = 0
+	orientation = 4
 	# Todo get struct of current items.. design it later
 	# For know will be the number of bombs available
 	lock = 0
+	var anim_res = load('res://scripts/utils/animation.gd')
+	anim_obj = anim_res.new()
 	# this avoid the user to be visible when the game starts
 	#hide()  
 
 func _process(delta):
 	var velocity = Vector2()
 	var state = 0
-	
+		
 	if Input.is_action_pressed('ui_right') or Input.is_key_pressed(KEY_D):
 		velocity.x += 1
 		state += 1
@@ -46,7 +49,6 @@ func _process(delta):
 		orientation = 4
 		
 	if Input.is_key_pressed(KEY_SPACE):
-		print(playerdata.items["bombs"])
 		if state_item == 0:
 			state_item = 1 
 		elif state_item == 2:
@@ -102,86 +104,61 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	pass
 
 func set_anim(state):
+	var stop = false
+	var node_player = $Sprite/AnimationPlayer
+	
+	var node_item = get_node(playerdata.cur_item_res[playerdata.cur_item])
 	if !state_item:
+		if !state:
+			stop = true
+		
+		# 0 - right, 1 - left, 2 - up, 3 - down
 		match state:
-			0:
-				$Sprite/AnimationPlayer.stop()
 			1:
-				if $Sprite/AnimationPlayer.current_animation != "right":
-					$Sprite/AnimationPlayer.play("right")
+				state = 0
 			2:
-				if $Sprite/AnimationPlayer.current_animation != "left":
-					$Sprite/AnimationPlayer.play("left")
+				state = 1
 			4:
-				if $Sprite/AnimationPlayer.current_animation != "up":
-					$Sprite/AnimationPlayer.play("up")
+				state = 2
 			8:
-				if $Sprite/AnimationPlayer.current_animation != "down":
-					$Sprite/AnimationPlayer.play("down")
+				state = 3
 			9:
-				if $Sprite/AnimationPlayer.current_animation != "down":
-					$Sprite/AnimationPlayer.play("down")
+				state = 3
 			10:
-				if $Sprite/AnimationPlayer.current_animation != "down":
-					$Sprite/AnimationPlayer.play("down")
+				state = 3
 			_:
-				if $Sprite/AnimationPlayer.current_animation != "up":
-					$Sprite/AnimationPlayer.play("up")
+				state = 2
+		anim_obj.play_anim(state, node_player, playerdata.anim["player"] , stop)
 	else:
 		match state_item:
 			1:
-				if $Sprite/AnimationPlayer.current_animation != "grab_down":
-					if playerdata.items["bombs"] > 0:
-						$Bomb.visible = true
-						$Bomb/AnimationPlayer.play("bomb_up")
-					$Sprite/AnimationPlayer.play("grab_down")
+				state = 8
+				anim_obj.play_anim_item(state, node_player, playerdata.anim["player"], playerdata.items[playerdata.cur_item], \
+										node_item, playerdata.anim[playerdata.cur_item], 0)
 			2:
+				if !state:
+					stop = true
+				# carry: 4 - right, 5 - left, 6 - up, 7 - down
 				match state:
-					0:
-						$Sprite/AnimationPlayer.stop()
 					1:
-						if $Sprite/AnimationPlayer.current_animation != "carry_right":
-							$Sprite/AnimationPlayer.play("carry_right")
+						state = 4
 					2:
-						if $Sprite/AnimationPlayer.current_animation != "carry_left":
-							$Sprite/AnimationPlayer.play("carry_left")
+						state = 5
 					4:
-						if $Sprite/AnimationPlayer.current_animation != "carry_up":
-							$Sprite/AnimationPlayer.play("carry_up")
+						state = 6
 					8:
-						if $Sprite/AnimationPlayer.current_animation != "carry_down":
-							$Sprite/AnimationPlayer.play("carry_down")
+						state = 7
 					9:
-						if $Sprite/AnimationPlayer.current_animation != "carry_down":
-							$Sprite/AnimationPlayer.play("carry_down")
+						state = 7
 					10:
-						if $Sprite/AnimationPlayer.current_animation != "carry_down":
-							$Sprite/AnimationPlayer.play("carry_down")
+						state = 7
 					_:
-						if $Sprite/AnimationPlayer.current_animation != "carry_up":
-							$Sprite/AnimationPlayer.play("carry_up")
+						state = 6
+				anim_obj.play_anim(state, node_player, playerdata.anim["player"] , stop)
 			4:
 				if lock == 0:
-					$Sprite/AnimationPlayer.stop()
-					match orientation:
-						0:
-							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_down":
-								$Bomb/AnimationPlayer.play("throw_bomb_down")
-						1:
-							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_right":
-								$Bomb/AnimationPlayer.play("throw_bomb_right")
-						2:
-							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_left":
-								$Bomb/AnimationPlayer.play("throw_bomb_left")
-						3:
-							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_up":
-								$Bomb/AnimationPlayer.play("throw_bomb_up")
-						4:
-							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_down":
-								$Bomb/AnimationPlayer.play("throw_bomb_down")
-						_:
-							if $Bomb/AnimationPlayer.current_animation != "throw_bomb_up":
-								$Bomb/AnimationPlayer.play("throw_bomb_up")
+					node_player.stop()
+					anim_obj.play_anim(orientation, node_item.get_node('AnimationPlayer'), playerdata.anim[playerdata.cur_item])
 
 
 func _on_AnimationBomb_finished(anim_name):

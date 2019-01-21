@@ -337,7 +337,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 0, -120 ) ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 93.2728, 125.572 )
 scale = Vector2( 0.761046, 0.690976 )
