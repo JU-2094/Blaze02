@@ -1,0 +1,130 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://touchcontrl.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark26.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark22.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark25.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark21.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark23.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark19.png" type="Texture" id=7]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark24.png" type="Texture" id=8]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark20.png" type="Texture" id=9]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark35.png" type="Texture" id=10]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark31.png" type="Texture" id=11]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark36.png" type="Texture" id=12]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark32.png" type="Texture" id=13]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark19.png" type="Texture" id=14]
+[ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark15.png" type="Texture" id=15]
+
+[node name="touchcontrl" type="Node2D" index="0"]
+
+position = Vector2( 899.741, 465.966 )
+script = ExtResource( 1 )
+
+[node name="down" type="TouchScreenButton" parent="." index="0"]
+
+position = Vector2( -763.011, 91.5808 )
+scale = Vector2( 0.45, 0.45 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "down"
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="TouchScreenButton" parent="." index="1"]
+
+position = Vector2( -760.899, 25.8567 )
+scale = Vector2( 0.45, 0.45 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "up"
+visibility_mode = 0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="left" type="TouchScreenButton" parent="." index="2"]
+
+position = Vector2( -802.731, 56.2225 )
+scale = Vector2( 0.45, 0.45 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 7 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "left"
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="TouchScreenButton" parent="." index="3"]
+
+position = Vector2( -722.126, 57.8235 )
+scale = Vector2( 0.45, 0.45 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 9 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "right"
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="a" type="TouchScreenButton" parent="." index="4"]
+
+position = Vector2( -553.187, 44.0794 )
+scale = Vector2( 0.45, 0.45 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 11 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "a"
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="b" type="TouchScreenButton" parent="." index="5"]
+
+position = Vector2( -597.682, 78.9153 )
+scale = Vector2( 0.45, 0.45 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 13 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "b"
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="menu" type="TouchScreenButton" parent="." index="6"]
+
+position = Vector2( -661.177, 98.2206 )
+scale = Vector2( 0.583141, 0.54954 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 15 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[connection signal="pressed" from="b" to="." method="_on_b_pressed"]
+
+
