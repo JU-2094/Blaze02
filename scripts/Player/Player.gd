@@ -50,6 +50,7 @@ func _process(delta):
 		
 	if Input.is_key_pressed(KEY_SPACE):
 		if state_item == 0:
+			$AudioStreamPlayer.play()
 			state_item = 1 
 		elif state_item == 2:
 			state_item = 4
@@ -167,6 +168,7 @@ func _on_AnimationBomb_finished(anim_name):
 		$Bomb.position.x = 0
 		$Bomb.position.y = 0
 		$Bomb/AnimationPlayer.stop()
+		$Bomb/AudioStreamPlayer.play()
 		playerdata.items["bombs"] -=1
 		playerdata.items["coins"] +=1
 		#items -= 1

@@ -87,17 +87,17 @@ height = 2.99375
 
 [node name="NPC" type="KinematicBody2D"]
 
+z_as_relative = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "collision" ]
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 speed = 20
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
@@ -121,5 +121,6 @@ blend_times = [  ]
 
 position = Vector2( 0, 0.174826 )
 shape = SubResource( 5 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
 

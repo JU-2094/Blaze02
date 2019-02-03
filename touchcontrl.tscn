@@ -16,7 +16,7 @@
 [ext_resource path="res://assets/UI/onscreencontrols/Sprites/flatDark/flatDark19.png" type="Texture" id=14]
 [ext_resource path="res://assets/UI/onscreencontrols/Sprites/lineDark/lineDark15.png" type="Texture" id=15]
 
-[node name="touchcontrl" type="Node2D" index="0"]
+[node name="touchcontrl" type="Node2D"]
 
 position = Vector2( 899.741, 465.966 )
 script = ExtResource( 1 )

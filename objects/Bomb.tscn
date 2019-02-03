@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://objects/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/HUD/bombs_icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/music/explot.wav" type="AudioStream" id=3]
 
 [node name="Bomb" instance=ExtResource( 1 )]
 
@@ -28,5 +29,14 @@ position = Vector2( 11.3475, -3.24216 )
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
 position = Vector2( -11.2353, 4.64907 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 

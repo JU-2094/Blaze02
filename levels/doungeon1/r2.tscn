@@ -31,7 +31,7 @@ func _on_Area2D_body_entered(body):
 
 [node name="Player" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 507.688, 911.586 )
+position = Vector2( 514.369, 963.362 )
 
 [node name="Area2D" parent="." index="4" instance=ExtResource( 3 )]
 

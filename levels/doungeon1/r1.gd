@@ -8,8 +8,16 @@ onready var player_w_pos = get_player_grid_pos()
 # var b = "textvar"
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	#Player position warps:
+	if worlddata.psname=="doungeonp1-1":
+		$Player.position=Vector2(978.099731,511.869263)
+	if worlddata.psname=="doungeonp1-2":
+		$Player.position=Vector2(38.047424,508.746826)
+	if worlddata.psname=="doungeon2d1u":
+		$Player.position=Vector2(513.181885,982.653564)
+	if worlddata.psname=="doungeon2d1d":
+		$Player.position=Vector2(514.178284,47.580017)
+	
 	var canvas_transform = get_viewport().get_canvas_transform()
 	canvas_transform[2] = -player.position + screen_size / 2
 	get_viewport().set_canvas_transform(canvas_transform)

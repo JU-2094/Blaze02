@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Characters/Players/character.png" type="Texture" id=2]
 [ext_resource path="res://objects/Bomb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/music/rise.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -337,7 +338,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 0, -120 ) ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 93.2728, 125.572 )
 scale = Vector2( 0.761046, 0.690976 )
@@ -346,8 +347,8 @@ collision_layer = 3
 collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform" ]
-speed = 250
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
+speed = 10
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -395,7 +396,6 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="PlayerArea" type="Area2D" parent="." index="2"]
 
 editor/display_folded = true
-visible = false
 position = Vector2( 0.0865526, 6.08061 )
 scale = Vector2( 0.787164, 0.891962 )
 input_pickable = true
@@ -419,6 +419,7 @@ shape = SubResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
 
+visible = false
 anchor_mode = 1
 rotating = false
 current = true
@@ -444,6 +445,7 @@ editor_draw_drag_margin = false
 
 [node name="Bomb" parent="." index="4" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 0, 20 )
 scale = Vector2( 1.75086, 1.75086 )
@@ -465,6 +467,15 @@ anims/throw_bomb_right = SubResource( 18 )
 anims/throw_bomb_up = SubResource( 19 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
