@@ -10,6 +10,7 @@ var state_item
 var orientation
 var screen_size = OS.get_real_window_size()
 var lock
+var lock_weapon
 
 func _ready():
 	var canvas_transform = get_viewport().get_canvas_transform()
@@ -21,6 +22,7 @@ func _ready():
 	lock = 0
 	var anim_res = load('res://scripts/utils/animation.gd')
 	anim_obj = anim_res.new()
+	lock_weapon = 0
 	# this avoid the user to be visible when the game starts
 	#hide()  
 
@@ -47,13 +49,18 @@ func _process(delta):
 		velocity.y += 1
 		state += 8
 		orientation = 4
-		
-	if Input.is_key_pressed(KEY_SPACE):
+	
+	if Input.is_key_pressed(KEY_1):
 		if state_item == 0:
 			$AudioStreamPlayer.play()
-			state_item = 1 
-		elif state_item == 2:
+			state_item = 1
+	
+	if Input.is_key_pressed(KEY_SPACE):
+		if state_item == 2:
 			state_item = 4
+		else:
+			lock_weapon = 1
+			 
 	if Input.is_key_pressed(KEY_B):
 		print(worlddata.prev_scene.get_name())
 		print(worlddata.current_scene.get_name())
@@ -102,7 +109,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			state_item = 2
 		else:
 			state_item = 0
-	pass
+	elif lock_weapon:
+		lock_weapon = 0
 
 func set_anim(state):
 	var stop = false
@@ -113,7 +121,7 @@ func set_anim(state):
 		if !state:
 			stop = true
 		
-		# 0 - right, 1 - left, 2 - up, 3 - down
+		# 0 - right, 1 - left, 2 - up, 3 - down 
 		match state:
 			1:
 				state = 0
@@ -129,7 +137,13 @@ func set_anim(state):
 				state = 3
 			_:
 				state = 2
-		anim_obj.play_anim(state, node_player, playerdata.anim["player"] , stop)
+			# Se le suma 9 porque ahi empiezan las animaciones de la espada en playerdata
+		
+		if lock_weapon:
+			anim_obj.play_anim_item(orientation + 8, node_player, playerdata.anim["player"])
+		else:
+			if !lock_weapon:
+				anim_obj.play_anim(state, node_player, playerdata.anim["player"] , stop)
 	else:
 		match state_item:
 			1:
