@@ -1,21 +1,22 @@
-extends Node
+extends AudioStreamPlayer2D
 
 var stream_handler
-var audiostream
 
 func setup():
+	print('AudioStream initialized')
+	stream_handler = AudioStreamPlayer.new()
+	stream_handler.connect("finished", self, "_on_finished_track")
 	pass
-	#stream_handler = AudioStreamPlayer()
-	#stream_handler.connect("finished", self, "_on_finished_track")
 
 func instant_play(scene_name, dict_data):
 	if scene_name in dict_data:
 		var data_path = dict_data[scene_name]
+		var sfx = load(data_path)
+		
 		print(data_path)
-#	audiostream = AudioStream(dict_data[scene_name])
-#	stream_handler.set_stream(audiostream)
-#	stream_handler.play()
-	
+		sfx.set_loop(false)
+		stream_handler.set_stream(sfx)
+		stream_handler.play()
 	pass
 
 func _on_finished_track():
