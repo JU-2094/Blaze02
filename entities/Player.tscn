@@ -408,7 +408,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 0, -120 ) ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 93.2728, 125.572 )
 scale = Vector2( 0.761046, 0.690976 )
@@ -461,7 +461,6 @@ _sections_unfolded = [ "Pause", "Playback Options" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 position = Vector2( 0, 5.96644 )
 scale = Vector2( 1, 0.986999 )
 shape = SubResource( 17 )
@@ -469,7 +468,6 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="PlayerArea" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 0.0865526, 6.08061 )
 scale = Vector2( 0.787164, 0.891962 )
 input_pickable = true
@@ -555,6 +553,8 @@ bus = "Master"
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 
 [connection signal="area_exited" from="PlayerArea" to="." method="_on_PlayerArea_area_exited"]
+
+[connection signal="body_entered" from="PlayerArea" to="." method="_on_PlayerArea_body_entered"]
 
 [connection signal="animation_finished" from="Bomb/AnimationPlayer" to="." method="_on_AnimationBomb_finished"]
 

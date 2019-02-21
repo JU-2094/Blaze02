@@ -27,6 +27,7 @@ func _ready():
 	#hide()  
 
 func _process(delta):
+	check_health()
 	var velocity = Vector2()
 	var state = 0
 		
@@ -77,7 +78,7 @@ func _process(delta):
 # signal callback
 func _on_Player_body_entered(body):
 	#hide()
-	print("DUH ", body.get_name())
+	print("DUH ")
 	emit_signal("hit")
 	"""
 	By turning it off, we make sure we don’t trigger 
@@ -93,6 +94,7 @@ func start(pos):
 
 
 func _on_PlayerArea_area_entered(area):
+	print("hiot")
 	if area.get_name() != "Vision":
 		isoverlay = true
 	#if area.get_name() == "EnemyArea":
@@ -194,3 +196,19 @@ func _on_AnimationBomb_finished(anim_name):
 func _on_Bomb_animation_started(anim_name):
 	if anim_name != "bomb_up":
 		lock = 1
+
+
+func _on_PlayerArea_body_entered(body):
+	print("DUH ",body.name)
+	if body.name == "Enemy":
+		playerdata.stats["health"] -=20
+		
+	pass # replace with function body
+
+func check_health():
+	if playerdata.stats["health"] <= 0 && playerdata.stats["lives"]>0:
+		playerdata.stats["lives"]-=1
+		playerdata.stats["health"]=playerdata.maxstats["health"]
+	if playerdata.stats["health"] <= 0 && playerdata.stats["lives"]==0:
+		print("you're virtually death")
+	pass

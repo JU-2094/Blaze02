@@ -9,7 +9,7 @@
 [ext_resource path="res://objects/PowerUp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/music/theme1.ogg" type="AudioStream" id=8]
 
-[node name="testlevel" type="Node2D"]
+[node name="testlevel" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
