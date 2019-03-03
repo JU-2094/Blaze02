@@ -5,7 +5,8 @@ var csname
 var psname
 var music_obj
 # Dictionary for controlling the music
-var music_dic = {'r1.tscn':'res://assets/music/theme1.ogg'}
+var music_dic = {'r1.tscn':'res://assets/music/theme1.ogg',
+				 'r3.tscn':'res://assets/music/theme1.ogg'}
 
 func _ready():
 	var root = get_tree().get_root()
@@ -22,6 +23,9 @@ func goto_scene(path):
 func _deferred_goto_scene(path):
 	psname = current_scene.get_name() #save prevscene name
     # It is now safe to remove the current scene
+	if music_obj.isattach:
+		current_scene.remove_child(music_obj.stream_handler)
+		pass
 	current_scene.free()
 
     # Load the new scene.
@@ -31,9 +35,15 @@ func _deferred_goto_scene(path):
 	current_scene = s.instance()
 	csname=current_scene.get_name()  
     # Add it to the active scene, as child of root.
-	#current_scene.add_child(music_obj.stream_handler)
+	current_scene.add_child(music_obj.stream_handler)
+	
+	if music_obj.isattach:
+		print('stopping song')
+		music_obj.stop_play(false, path.get_file(), music_dic)
+		
+	music_obj.isattach = true
 	get_tree().get_root().add_child(current_scene)
     # Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(current_scene)
-	#music_obj.instant_play(path.get_file(), music_dic)
+	music_obj.instant_play(path.get_file(), music_dic)
 
