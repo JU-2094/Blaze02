@@ -43,6 +43,7 @@ func _deferred_goto_scene(path):
 		
 	music_obj.isattach = true
 	get_tree().get_root().add_child(current_scene)
+	get_tree().get_root().add_child(get_node('res://assets/UI/Pause.tscn'))
     # Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(current_scene)
 	music_obj.instant_play(path.get_file(), music_dic)
