@@ -34,7 +34,6 @@ func _on_Exit_pressed():
 
 func _on_Return_pressed():
 	print("entra button")
-	worlddata.pause_state=false
 	$pause_pop_up.hide()
 	get_tree().paused = false
 	pass # replace with function body
