@@ -7,6 +7,7 @@ var music_obj
 # Dictionary for controlling the music
 var music_dic = {'r1.tscn':'res://assets/music/theme1.ogg',
 				 'r3.tscn':'res://assets/music/theme1.ogg'}
+var music_vol = 0
 
 func _ready():
 	var root = get_tree().get_root()

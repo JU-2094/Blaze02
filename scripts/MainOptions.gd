@@ -17,5 +17,9 @@ func _on_NewGame_pressed():
 
 
 func _on_Options_pressed():
-	
+	worlddata.goto_scene("res://Menus/OptionMenu.tscn")
+	pass # replace with function body
+
+
+func _on_Continue_pressed():
 	pass # replace with function body
