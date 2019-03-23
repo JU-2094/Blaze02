@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bones-2.ogg-aaf334721939ab998426b1cc93b4c310.oggstr"
+
+[deps]
+
+source_file="res://sounds/bones-2.ogg"
+dest_files=[ "res://.import/bones-2.ogg-aaf334721939ab998426b1cc93b4c310.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
