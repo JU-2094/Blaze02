@@ -21,6 +21,10 @@ func instant_play(scene_name, dict_data):
 			return 
 		var sfx = load(data_path)
 		sfx.set_loop(false)
+		
+		print('music volume', worlddata.music_vol)
+		stream_handler.set_volume_db(worlddata.music_vol)
+		stream_handler.set_pitch_scale(0.2)
 		stream_handler.set_stream(sfx)
 		stream_handler.play()
 	else:
