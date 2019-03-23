@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/Enemy/DefenseTorret.gd" type="Script" id=1]
+[ext_resource path="res://assets/Sprites/Characters/Enemies /Torret/torret_1_full.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "shoot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 4 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "spin_clock"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "spin_no_clock"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 219.902
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 1876.57
+
+[node name="DefenseTorret" type="StaticBody2D"]
+position = Vector2( 535.403, 396.925 )
+script = ExtResource( 1 )
+speed = 35
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -200 )
+hframes = 5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/shoot = SubResource( 1 )
+anims/spin_clock = SubResource( 2 )
+anims/spin_no_clock = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -31.1254, -101.158 )
+shape = SubResource( 4 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Vision" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LeftT" type="Node2D" parent="."]
+position = Vector2( -118.799, -462.208 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="RightT" type="Node2D" parent="."]
+position = Vector2( 77.9512, -458.312 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[connection signal="body_entered" from="Vision" to="." method="_on_Vision_body_entered"]
+[connection signal="body_exited" from="Vision" to="." method="_on_Vision_body_exited"]
