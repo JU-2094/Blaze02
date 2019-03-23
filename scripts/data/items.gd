@@ -1,3 +1,0 @@
-extends Node
-var items = {"bombs":"res://assets/HUD/bombs_icon.png","coins":"res://assets/Sprites/HUD/HQitems/128/coin.png","gems":"res://assets/Sprites/HUD/HQitems/128/gemBlue.png","redpotion":"res://assets/Sprites/HUD/HQitems/128/potionRed.png","bluepotion":"res://assets/Sprites/HUD/HQitems/128/potionBlue.png","ring":"res://assets/Sprites/HUD/RPGIconsExtra/icon_21.png"}
-var weapon = {"sword":"res://assets/Sprites/HUD/HQitems/128/sword.png","wand":"res://assets/Sprites/HUD/HQitems/128/wand.png","shield":"res://assets/Sprites/HUD/HQitems/128/shield.png","axe":"res://assets/Sprites/HUD/HQitems/128/axe2.png",}

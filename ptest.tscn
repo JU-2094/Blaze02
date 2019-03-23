@@ -4,15 +4,12 @@
 [ext_resource path="res://entities/NPC.tscn" type="PackedScene" id=2]
 [ext_resource path="res://touchcontrl.tscn" type="PackedScene" id=3]
 
-[node name="dungeonp1" index="0" instance=ExtResource( 1 )]
+[node name="dungeonp1" instance=ExtResource( 1 )]
 
 [node name="NPC" parent="." index="2" instance=ExtResource( 2 )]
-
 position = Vector2( 185.243, 271.984 )
 speed = 103
 
 [node name="touchcontrl" parent="." index="4" instance=ExtResource( 3 )]
-
 position = Vector2( 808.741, 260.965 )
-
 

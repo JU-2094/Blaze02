@@ -5,38 +5,25 @@
 [ext_resource path="res://assets/music/explot.wav" type="AudioStream" id=3]
 
 [node name="Bomb" instance=ExtResource( 1 )]
-
 position = Vector2( 8.75966, 0.291988 )
 
 [node name="Sprite" parent="." index="0"]
-
 position = Vector2( 0.401314, -1.48203 )
 scale = Vector2( 0.321074, 0.321074 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Offset" ]
 
 [node name="CollisionShape2D" parent="." index="1"]
-
 visible = false
 position = Vector2( 0.349651, 1.92307 )
 disabled = true
 
 [node name="Area2D" parent="." index="2"]
-
 visible = false
 position = Vector2( 11.3475, -3.24216 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-
 position = Vector2( -11.2353, 4.64907 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
-
 stream = ExtResource( 3 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
 

@@ -25,6 +25,7 @@ playerdata="*res://scripts/data/playerdata.gd"
 enemydata="*res://scripts/data/enemydata.gd"
 worlddata="*res://scripts/data/worlddata.gd"
 music="*res://scripts/data/music.gd"
+itemdata="*res://scripts/data/itemdata.gd"
 
 [display]
 
