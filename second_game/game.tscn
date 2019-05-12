@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Sprites/Worlds/bosquerosa/parallax-mountain-bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sprites/Worlds/bosquerosa/parallax-mountain-montain-far.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sprites/Worlds/bosquerosa/parallax-mountain-mountains.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sprites/Worlds/bosquerosa/parallax-mountain-trees.png" type="Texture" id=4]
+[ext_resource path="res://assets/Sprites/Worlds/bosquerosa/parallax-mountain-foreground-trees.png" type="Texture" id=5]
+[ext_resource path="res://entities/skullkid.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/music/BoneYardWaltz-Loopable.ogg" type="AudioStream" id=7]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1140.47, 8.22681 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1000, 1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 3.76138, 3.75147 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 1000, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2( 3.75543, 3.71231 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 1200, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+scale = Vector2( 2.90295, 3.75147 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 1300, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+scale = Vector2( 3.23359, 3.73128 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1300, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2( 3.35501, 3.75139 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="skullkid" parent="." instance=ExtResource( 6 )]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 320, 620 )
+scale = Vector2( 3.63, 1.24 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
