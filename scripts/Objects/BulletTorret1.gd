@@ -6,6 +6,9 @@ var speed = 10
 var time
 signal hit(body)
 
+func _ready():
+	pass
+
 func setup(dir):
 	direction = dir
 

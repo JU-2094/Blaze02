@@ -35,10 +35,11 @@ func fire():
 	
 	bulletL.global_position = $LeftT.position
 	bulletR.global_position = $RightT.position
-	bulletL.setup(enemy_dir)
-	bulletR.setup(enemy_dir)
-	get_parent().add_child(bulletL)
-	get_parent().add_child(bulletR)
+	# bulletL.setup(enemy_dir)
+	# bulletR.setup(enemy_dir)
+	add_child(bulletL)
+	add_child(bulletR)
+	
 
 func _on_Vision_body_entered(body):
 	if body.get_name() == "Player":
