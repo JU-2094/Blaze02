@@ -81,6 +81,7 @@ radius = 1876.57
 
 [node name="DefenseTorret" type="StaticBody2D"]
 position = Vector2( 535.403, 396.925 )
+rotation = -0.425374
 collision_layer = 2
 script = ExtResource( 1 )
 speed = 35

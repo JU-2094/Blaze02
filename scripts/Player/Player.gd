@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal hit
 
-export (int) var speed
+var speed=100
 var anim_obj 
 var screensize
 var isoverlay = false 
@@ -28,6 +28,7 @@ func _ready():
 
 func _process(delta):
 	check_health()
+	check_powerups()
 	var velocity = Vector2()
 	var state = 0
 		
@@ -186,7 +187,6 @@ func _on_AnimationBomb_finished(anim_name):
 		$Bomb/AnimationPlayer.stop()
 		$Bomb/AudioStreamPlayer.play()
 		playerdata.items["bombs"] -=1
-		playerdata.items["coins"] +=1
 		#items -= 1
 		state_item = 0
 		lock = 0
@@ -212,3 +212,23 @@ func check_health():
 	if playerdata.stats["health"] <= 0 && playerdata.stats["lives"]==0:
 		print("you're virtually death")
 	pass
+
+
+var timerpu
+var is_timerpu = true
+func check_powerups():
+	if playerdata.powerups["speedup"] and is_timerpu:
+		is_timerpu=false
+		#print("speedup")
+		speed=200
+		timerpu = Timer.new()
+		timerpu.set_wait_time(4)
+		timerpu.connect("timeout",self,"_on_timer_timeout") 
+		add_child(timerpu) #to process"
+		timerpu.start()
+			
+func _on_timer_timeout():
+	playerdata.powerups["speedup"]=false
+	timerpu.stop()
+	is_timerpu= true
+	speed=100

@@ -1,11 +1,33 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/Item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/Objects/Item.gd" type="Script" id=2]
-[ext_resource path="res://assets/Sprites/Items/Miscellaneous/Coin.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sprites/Items/Miscellaneous/Coin.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "init"
+[sub_resource type="GDScript" id=1]
+script/source = "extends StaticBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	$Sprite/AnimationPlayer.play(\"init\")
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+
+
+
+func _on_Area2D_body_entered(body):
+	playerdata.items[\"coins\"]=playerdata.items[\"coins\"]+1
+	queue_free()
+	pass # Replace with function body.
+"
+
+[sub_resource type="Animation" id=2]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -22,15 +44,15 @@ tracks/0/keys = {
 }
 
 [node name="Coin" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+script = SubResource( 1 )
 
 [node name="Sprite" parent="." index="0"]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 hframes = 4
 region_rect = Rect2( 2, 66, 11, 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="0"]
-anims/init = SubResource( 1 )
+anims/init = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false

@@ -3,7 +3,7 @@ extends Control
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-
+var c= false
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -34,6 +34,10 @@ func _on_Exit_pressed():
 
 func _on_Return_pressed():
 	print("entra button")
-	$pause_pop_up.hide()
-	get_tree().paused = false
+	if get_tree().paused and c:
+		c=false
+		$pause_pop_up.hide()
+		get_tree().paused = false
+	else:
+		c=true
 	pass # replace with function body

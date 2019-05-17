@@ -4,6 +4,7 @@ var direction
 signal bullet_hit(body)
 var speed = 120
 var isset = false
+var damage = 5
 signal hit(body)
 
 func _ready():
@@ -23,9 +24,9 @@ func _process(delta):
 func _on_Area2D_body_entered(body):
 	# animation and hit
 	print("AREA OF BULLET")
-	emit_signal("bullet_hit", body)
-	
-	# removing node
-	# get_parent().remove_child(self)
+	print(name)
+	emit_signal("bullet_hit",body)
+	if body.name== "Player":
+		playerdata.stats["health"]=playerdata.stats["health"]-damage
 	queue_free()
 	pass # Replace with function body.

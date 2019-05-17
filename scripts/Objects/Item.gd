@@ -1,14 +1,8 @@
 extends StaticBody2D
 
-# class member variables go here, for example:
+# Declare member variables here. Examples:
 # var a = 2
-# var b = "textvar"
+# var b = "text"
 
-func _ready():
-	$Sprite/AnimationPlayer.play("init")
-	pass
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

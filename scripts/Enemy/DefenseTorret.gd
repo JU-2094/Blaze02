@@ -8,7 +8,6 @@ var is_timer = false
 var bullets = 15
 var delta_angle
 var prev_rot
-
 func get_pos(x,y,angle):
 	var xn = cos(angle)*x - sin(angle)*y
 	var yn = sin(angle)*x + cos(angle)*y
@@ -24,6 +23,7 @@ func _ready():
 	prev_rot = 0
 
 func _process(delta):
+	#print($Sprite/LeftT.global_position)
 	if target:
 		# rotate and shoot
 		var enemy_dir = (target.global_position - $Sprite.global_position).normalized()
@@ -61,17 +61,13 @@ func fire():
 	# $LeftT.position = get_pos($LeftT.position.x, $LeftT.position.y, $Sprite.global_rotation - $LeftT.global_rotation)
 	# $RightT.position = get_pos($RightT.position.x, $RightT.position.y, $Sprite.global_rotation - $RightT.global_rotation)
 	delta_angle = 0
-	
-	bulletL.position = $Sprite/LeftT.position
-	bulletR.position = $Sprite/RightT.position
-	bulletL.setup(enemy_dir)
-	bulletR.setup(enemy_dir)
-	
 	add_child(bulletL)
 	add_child(bulletR)
-	
+	bulletL.global_position = $Sprite/LeftT.global_position
+	bulletR.global_position = $Sprite/RightT.global_position
+	bulletL.setup(enemy_dir)
+	bulletR.setup(enemy_dir)
 	bullets = bullets - 1
-	
 
 func _on_Vision_body_entered(body):
 	if body.get_name() == "Player":

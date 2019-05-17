@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/Sprites/Characters/Players/character.png" type="Texture" id=2]
 [ext_resource path="res://objects/Bomb.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/music/rise.wav" type="AudioStream" id=4]
-[ext_resource path="res://objects/pause_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://itemmenu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "carry_down"
@@ -347,7 +347,6 @@ scale = Vector2( 0.761046, 0.690976 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
-speed = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.581871, 4.4892 )
@@ -419,7 +418,7 @@ stream = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="pause_menu" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
