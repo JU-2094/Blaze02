@@ -3,7 +3,6 @@
 [ext_resource path="res://scripts/Enemy/DefenseTorret.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Characters/Enemies/Torret/torret_1_full.png" type="Texture" id=2]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "shoot"
 length = 0.5
@@ -87,7 +86,6 @@ script = ExtResource( 1 )
 speed = 35
 
 [node name="Sprite" type="Sprite" parent="."]
-rotation = 6.28319
 texture = ExtResource( 2 )
 offset = Vector2( 0, -200 )
 hframes = 5
@@ -100,6 +98,20 @@ anims/shoot = SubResource( 1 )
 anims/spin_clock = SubResource( 2 )
 anims/spin_no_clock = SubResource( 3 )
 
+[node name="LeftT" type="Node2D" parent="Sprite"]
+position = Vector2( -118.799, -462.208 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="RightT" type="Node2D" parent="Sprite"]
+position = Vector2( 77.9512, -458.312 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -31.1254, -101.158 )
@@ -108,26 +120,12 @@ shape = SubResource( 4 )
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 [node name="Vision" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+visible = false
 shape = SubResource( 5 )
 __meta__ = {
-"_edit_lock_": true
-}
-
-[node name="LeftT" type="Node2D" parent="."]
-position = Vector2( -118.799, -462.208 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
-
-[node name="RightT" type="Node2D" parent="."]
-position = Vector2( 77.9512, -458.312 )
-__meta__ = {
-"_edit_group_": true,
 "_edit_lock_": true
 }
 

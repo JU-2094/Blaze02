@@ -3,7 +3,6 @@
 [ext_resource path="res://scripts/Objects/BulletTorret1.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Characters/Enemies/Torret/torret_1_bullet.png" type="Texture" id=2]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "explode"
 length = 0.6
@@ -75,7 +74,7 @@ visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 3.05176e-05 )
+position = Vector2( 0, 3.05176e-005 )
 shape = SubResource( 4 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
