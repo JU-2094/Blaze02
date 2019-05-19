@@ -1,273 +1,711 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=161 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Characters/Players/character.png" type="Texture" id=2]
 [ext_resource path="res://objects/Bomb.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/music/rise.wav" type="AudioStream" id=4]
-[ext_resource path="res://itemmenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/itemmenu.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "carry_down"
-length = 0.6
+length = 0.4
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 9, 12 ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 138.799, 5.24137, 16.5, 23.875 ), Rect2( 156.799, 5.24137, 16.625, 23.875 ), Rect2( 174.799, 5.24137, 16.5, 23.875 ), Rect2( 192.549, 5.24137, 16.875, 23.875 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "carry_left"
-length = 0.6
+length = 0.4
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 60, 63 ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 143.924, 102.293, 14.75, 21.875 ), Rect2( 160.174, 102.293, 14.625, 21.875 ), Rect2( 176.674, 102.293, 14, 21.875 ), Rect2( 192.549, 102.293, 14, 21.875 ) ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "carry_right"
-length = 0.6
+length = 0.4
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 26, 29 ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 145.174, 37.1821, 14.75, 24.625 ), Rect2( 161.674, 37.1821, 14.125, 24.625 ), Rect2( 177.424, 37.1821, 14.25, 24.625 ), Rect2( 193.674, 37.1821, 13.875, 24.625 ) ]
 }
 
 [sub_resource type="Animation" id=4]
 resource_name = "carry_up"
-length = 0.6
+length = 0.4
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 43, 46 ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 141.924, 67.9187, 16.5, 24.75 ), Rect2( 159.799, 67.9187, 16.75, 24.75 ), Rect2( 177.799, 67.9187, 16.625, 24.75 ), Rect2( 195.799, 67.9187, 16.75, 24.75 ) ]
 }
 
 [sub_resource type="Animation" id=5]
 resource_name = "down"
-length = 0.6
+length = 0.4
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0, 3 ]
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0.42475, 5.87012, 16, 23.75 ), Rect2( 16.25, 5.625, 15.875, 23.9951 ), Rect2( 32.25, 5.625, 16.125, 23.9951 ), Rect2( 48.375, 5.625, 16.125, 23.9951 ) ]
 }
 
 [sub_resource type="Animation" id=6]
 resource_name = "grab_down"
-length = 0.7
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 5, 7 ]
+"times": PoolRealArray( 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 79.4191, 6.43325, 15.5, 22.5 ), Rect2( 96.6691, 6.43325, 15.5, 22.5 ), Rect2( 114.044, 6.43325, 16.5, 22.5 ) ]
 }
 
 [sub_resource type="Animation" id=7]
 resource_name = "grab_left"
-length = 0.7
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 56, 58 ]
+"times": PoolRealArray( 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 80.9191, 102.484, 15.25, 21.375 ), Rect2( 96.4191, 102.484, 14.25, 21.375 ), Rect2( 112.419, 102.484, 15.375, 21.375 ) ]
 }
 
 [sub_resource type="Animation" id=8]
 resource_name = "grab_right"
-length = 0.7
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 22, 24 ]
+"times": PoolRealArray( 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 78.6691, 37.9198, 18.5, 21.625 ), Rect2( 97.4191, 37.9198, 14.625, 21.625 ), Rect2( 113.044, 37.9198, 15.25, 21.625 ) ]
 }
 
 [sub_resource type="Animation" id=9]
 resource_name = "grab_up"
-length = 0.7
+length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 39, 41 ]
+"times": PoolRealArray( 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 79.4191, 70.7269, 16.75, 21 ), Rect2( 96.5441, 70.7269, 16.625, 21 ), Rect2( 114.544, 70.7269, 17.125, 21 ) ]
 }
 
 [sub_resource type="Animation" id=10]
-resource_name = "left"
-length = 0.6
+resource_name = "idle_carry_down"
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 51, 54 ]
+"values": [ Rect2( 114.114, 6.05587, 16.875, 22.625 ) ]
 }
 
 [sub_resource type="Animation" id=11]
-resource_name = "right"
-length = 0.6
+resource_name = "idle_carry_left"
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 17, 20 ]
+"values": [ Rect2( 113.864, 101.911, 13.625, 22.125 ) ]
 }
 
 [sub_resource type="Animation" id=12]
-resource_name = "sword_down"
-length = 0.3
+resource_name = "idle_carry_right"
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 68, 71 ]
+"values": [ Rect2( 113.114, 38.1644, 14, 22.125 ) ]
 }
 
 [sub_resource type="Animation" id=13]
-resource_name = "sword_left"
-length = 0.3
+resource_name = "idle_carry_up"
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 119, 122 ]
+"values": [ Rect2( 114.864, 70.2639, 16.75, 23.25 ) ]
 }
 
 [sub_resource type="Animation" id=14]
-resource_name = "sword_right"
-length = 0.3
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 102, 105 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Rect2( 48.375, 5.625, 16.125, 23.9951 ) ]
 }
 
 [sub_resource type="Animation" id=15]
-resource_name = "sword_up"
-length = 0.3
+resource_name = "idle_left"
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 85, 88 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Rect2( 0.75, 102.575, 13.5, 22.375 ) ]
 }
 
 [sub_resource type="Animation" id=16]
-length = 0.6
+resource_name = "idle_right"
+length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 34, 37 ]
+"values": [ Rect2( 0.875, 38.5996, 14.75, 22.75 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 20.4198, 32.2809 )
+[sub_resource type="Animation" id=17]
+resource_name = "idle_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 0.25, 69.3889, 15, 24.25 ) ]
+}
 
-[sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 9.7547, 36.038 )
+[sub_resource type="Animation" id=18]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0, 102.042, 14.75, 23.375 ), Rect2( 16.375, 101.792, 13.875, 23.5 ), Rect2( 31.75, 101.417, 15, 24.5 ), Rect2( 48.125, 101.417, 14.375, 24.5 ) ]
+}
 
 [sub_resource type="Animation" id=19]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 1.5, 38.1805, 14.25, 23.125 ), Rect2( 17.25, 38.1805, 14.25, 23.125 ), Rect2( 33.375, 38.1805, 14.125, 23.125 ), Rect2( 49.25, 38.1805, 14.125, 23.125 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( -0.375, 135.256, 16.625, 25.375 ), Rect2( 17.25, 135.006, 16, 25 ), Rect2( 33.5, 134.131, 15.25, 27.125 ), Rect2( 49.125, 134.131, 16.25, 27.125 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0.125, 229.602, 13.125, 23.5 ), Rect2( 14.375, 229.227, 21.375, 23.75 ), Rect2( 37.25, 229.227, 19.625, 23.75 ), Rect2( 58.375, 229.227, 19, 23.75 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( -0.625, 198.465, 17.625, 22.375 ), Rect2( 17.375, 198.09, 20.625, 22.5 ), Rect2( 38, 198.09, 17, 22.5 ), Rect2( 55.125, 198.09, 16.25, 22.5 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( -0.25, 165.799, 17.625, 22 ), Rect2( 17.75, 165.049, 18.625, 22.75 ), Rect2( 36.625, 165.049, 15.875, 22.75 ), Rect2( 53.5, 165.049, 15.75, 22.75 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0.0497499, 68.9709, 16, 24 ), Rect2( 15.7997, 68.8459, 15.875, 24.25 ), Rect2( 31.6747, 68.8459, 16, 24.25 ), Rect2( 47.7998, 68.8459, 16, 24.25 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "carry_down"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "carry_left"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "carry_right"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "carry_up"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "down"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "grab_down"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "grab_left"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "grab_right"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "grab_up"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "idle_carry_down"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "idle_carry_left"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "idle_carry_right"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "idle_carry_up"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id=40]
+animation = "idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=41]
+animation = "idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "left"
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "right"
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "sword_down"
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "sword_left"
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "sword_right"
+
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "sword_up"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=67]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=68]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=80]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=81]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=82]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=83]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=84]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=85]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=86]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=87]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=88]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=90]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=91]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=92]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=93]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=96]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=97]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=98]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=99]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=100]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=101]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=102]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=103]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=104]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=105]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=106]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=107]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=108]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=109]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=110]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=111]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=112]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=113]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=114]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=115]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=116]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=117]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=118]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=119]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=120]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=121]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=122]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=123]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=124]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=125]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=126]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=127]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=128]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=129]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=130]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=131]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=132]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=133]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=134]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=135]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=136]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=146]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=147]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=148]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=149]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=137]
+states/carry_down/node = SubResource( 25 )
+states/carry_down/position = Vector2( 1224.84, 279 )
+states/carry_left/node = SubResource( 26 )
+states/carry_left/position = Vector2( 1038.84, 175 )
+states/carry_right/node = SubResource( 27 )
+states/carry_right/position = Vector2( 1418.84, 175 )
+states/carry_up/node = SubResource( 28 )
+states/carry_up/position = Vector2( 1224.84, 74 )
+states/down/node = SubResource( 29 )
+states/down/position = Vector2( 414.026, 290 )
+states/grab_down/node = SubResource( 30 )
+states/grab_down/position = Vector2( 612, 373.876 )
+states/grab_left/node = SubResource( 31 )
+states/grab_left/position = Vector2( 148, 74 )
+states/grab_right/node = SubResource( 32 )
+states/grab_right/position = Vector2( 766, 141 )
+states/grab_up/node = SubResource( 33 )
+states/grab_up/position = Vector2( 536, 39 )
+states/idle_carry_down/node = SubResource( 34 )
+states/idle_carry_down/position = Vector2( 1332.03, 368.969 )
+states/idle_carry_left/node = SubResource( 35 )
+states/idle_carry_left/position = Vector2( 1058.03, 356.876 )
+states/idle_carry_right/node = SubResource( 36 )
+states/idle_carry_right/position = Vector2( 1623.03, 167.305 )
+states/idle_carry_up/node = SubResource( 37 )
+states/idle_carry_up/position = Vector2( 1229.03, -60.6952 )
+states/idle_down/node = SubResource( 38 )
+states/idle_down/position = Vector2( 414.026, 445 )
+states/idle_left/node = SubResource( 39 )
+states/idle_left/position = Vector2( -41.9736, 173 )
+states/idle_right/node = SubResource( 40 )
+states/idle_right/position = Vector2( 648.026, 285 )
+states/idle_up/node = SubResource( 41 )
+states/idle_up/position = Vector2( 429.026, -76.6952 )
+states/left/node = SubResource( 42 )
+states/left/position = Vector2( 277, 168 )
+states/right/node = SubResource( 43 )
+states/right/position = Vector2( 592, 168 )
+states/sword_down/node = SubResource( 44 )
+states/sword_down/position = Vector2( 254, 373.876 )
+states/sword_left/node = SubResource( 45 )
+states/sword_left/position = Vector2( 106, 266 )
+states/sword_right/node = SubResource( 46 )
+states/sword_right/position = Vector2( 845, 240 )
+states/sword_up/node = SubResource( 47 )
+states/sword_up/position = Vector2( 265, -5 )
+states/up/node = SubResource( 48 )
+states/up/position = Vector2( 433, 102 )
+transitions = [ "left", "up", SubResource( 49 ), "up", "right", SubResource( 50 ), "right", "down", SubResource( 51 ), "down", "left", SubResource( 52 ), "down", "up", SubResource( 53 ), "down", "right", SubResource( 54 ), "left", "down", SubResource( 55 ), "left", "right", SubResource( 56 ), "right", "left", SubResource( 57 ), "right", "up", SubResource( 58 ), "up", "down", SubResource( 59 ), "up", "left", SubResource( 60 ), "left", "sword_left", SubResource( 61 ), "down", "sword_down", SubResource( 62 ), "right", "sword_right", SubResource( 63 ), "up", "sword_up", SubResource( 64 ), "up", "grab_up", SubResource( 65 ), "right", "grab_right", SubResource( 66 ), "down", "grab_down", SubResource( 67 ), "left", "grab_left", SubResource( 68 ), "carry_up", "carry_down", SubResource( 73 ), "carry_up", "carry_left", SubResource( 74 ), "carry_up", "carry_right", SubResource( 75 ), "carry_left", "carry_up", SubResource( 76 ), "carry_left", "carry_right", SubResource( 77 ), "carry_left", "carry_down", SubResource( 78 ), "carry_down", "carry_up", SubResource( 79 ), "carry_down", "carry_left", SubResource( 80 ), "carry_down", "carry_right", SubResource( 81 ), "carry_right", "carry_left", SubResource( 82 ), "carry_right", "carry_up", SubResource( 83 ), "carry_right", "carry_down", SubResource( 84 ), "idle_down", "down", SubResource( 85 ), "idle_down", "left", SubResource( 86 ), "idle_down", "right", SubResource( 87 ), "idle_down", "up", SubResource( 88 ), "down", "idle_down", SubResource( 89 ), "idle_down", "grab_down", SubResource( 90 ), "idle_down", "sword_down", SubResource( 91 ), "sword_down", "idle_down", SubResource( 92 ), "sword_left", "idle_left", SubResource( 93 ), "idle_left", "sword_left", SubResource( 94 ), "idle_left", "grab_left", SubResource( 95 ), "idle_left", "left", SubResource( 96 ), "left", "idle_left", SubResource( 97 ), "idle_left", "down", SubResource( 98 ), "idle_left", "right", SubResource( 99 ), "idle_left", "up", SubResource( 100 ), "sword_up", "idle_up", SubResource( 101 ), "idle_up", "sword_up", SubResource( 102 ), "idle_up", "up", SubResource( 103 ), "idle_up", "grab_up", SubResource( 104 ), "idle_up", "left", SubResource( 105 ), "idle_up", "right", SubResource( 106 ), "idle_up", "down", SubResource( 107 ), "sword_right", "idle_right", SubResource( 108 ), "idle_right", "sword_right", SubResource( 109 ), "idle_right", "grab_right", SubResource( 110 ), "idle_right", "right", SubResource( 111 ), "idle_right", "up", SubResource( 112 ), "right", "idle_right", SubResource( 113 ), "up", "idle_up", SubResource( 114 ), "idle_right", "down", SubResource( 115 ), "idle_right", "left", SubResource( 116 ), "carry_left", "idle_carry_left", SubResource( 117 ), "idle_carry_left", "carry_left", SubResource( 118 ), "idle_carry_left", "carry_down", SubResource( 119 ), "idle_carry_left", "carry_up", SubResource( 120 ), "idle_carry_left", "carry_right", SubResource( 121 ), "idle_carry_down", "carry_down", SubResource( 122 ), "carry_down", "idle_carry_down", SubResource( 123 ), "idle_carry_down", "carry_right", SubResource( 124 ), "idle_carry_down", "carry_left", SubResource( 125 ), "idle_carry_down", "carry_up", SubResource( 126 ), "carry_right", "idle_carry_right", SubResource( 127 ), "idle_carry_right", "carry_right", SubResource( 128 ), "idle_carry_right", "carry_up", SubResource( 129 ), "idle_carry_right", "carry_down", SubResource( 130 ), "idle_carry_right", "carry_left", SubResource( 131 ), "idle_carry_up", "carry_up", SubResource( 132 ), "carry_up", "idle_carry_up", SubResource( 133 ), "idle_carry_up", "carry_right", SubResource( 134 ), "idle_carry_up", "carry_left", SubResource( 135 ), "idle_carry_up", "carry_down", SubResource( 136 ), "grab_left", "idle_carry_left", SubResource( 146 ), "grab_up", "idle_carry_up", SubResource( 147 ), "grab_down", "idle_carry_down", SubResource( 148 ), "grab_right", "idle_carry_right", SubResource( 149 ) ]
+graph_offset = Vector2( 274.052, -18.0076 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=138]
+
+[sub_resource type="RectangleShape2D" id=139]
+extents = Vector2( 20.4198, 32.2809 )
+
+[sub_resource type="RectangleShape2D" id=140]
+extents = Vector2( 9.7547, 36.038 )
+
+[sub_resource type="Animation" id=141]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -281,7 +719,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 20 ), Vector2( 0, -30 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=142]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -296,7 +734,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 0, 120 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=143]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -311,7 +749,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( -40, -35 ), Vector2( -120, 0 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=144]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -326,7 +764,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 35.5556, -35 ), Vector2( 120, 0 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=145]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -341,6 +779,49 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 0, -120 ) ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=150]
+animation = "bomb_up"
+
+[sub_resource type="AnimationNodeAnimation" id=151]
+animation = "throw_bomb_down"
+
+[sub_resource type="AnimationNodeAnimation" id=152]
+animation = "throw_bomb_left"
+
+[sub_resource type="AnimationNodeAnimation" id=153]
+animation = "throw_bomb_right"
+
+[sub_resource type="AnimationNodeAnimation" id=154]
+animation = "throw_bomb_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=155]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=156]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=157]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=158]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=159]
+states/bomb_up/node = SubResource( 150 )
+states/bomb_up/position = Vector2( 378, 166 )
+states/throw_bomb_down/node = SubResource( 151 )
+states/throw_bomb_down/position = Vector2( 585, 239 )
+states/throw_bomb_left/node = SubResource( 152 )
+states/throw_bomb_left/position = Vector2( 161, 112 )
+states/throw_bomb_right/node = SubResource( 153 )
+states/throw_bomb_right/position = Vector2( 546, 112 )
+states/throw_bomb_up/node = SubResource( 154 )
+states/throw_bomb_up/position = Vector2( 253, 319 )
+transitions = [ "bomb_up", "throw_bomb_left", SubResource( 155 ), "bomb_up", "throw_bomb_right", SubResource( 156 ), "bomb_up", "throw_bomb_down", SubResource( 157 ), "bomb_up", "throw_bomb_up", SubResource( 158 ) ]
+end_node = "throw_bomb_down"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=160]
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 93.2728, 125.572 )
 scale = Vector2( 0.761046, 0.690976 )
@@ -352,9 +833,8 @@ script = ExtResource( 1 )
 position = Vector2( -0.581871, 4.4892 )
 scale = Vector2( 2.56177, 2.76329 )
 texture = ExtResource( 2 )
-vframes = 8
-hframes = 17
-frame = 105
+region_enabled = true
+region_rect = Rect2( 53.5, 165.049, 15.75, 22.75 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -369,18 +849,32 @@ anims/grab_down = SubResource( 6 )
 anims/grab_left = SubResource( 7 )
 anims/grab_right = SubResource( 8 )
 anims/grab_up = SubResource( 9 )
-anims/left = SubResource( 10 )
-anims/right = SubResource( 11 )
-anims/sword_down = SubResource( 12 )
-anims/sword_left = SubResource( 13 )
-anims/sword_right = SubResource( 14 )
-anims/sword_up = SubResource( 15 )
-anims/up = SubResource( 16 )
+anims/idle_carry_down = SubResource( 10 )
+anims/idle_carry_left = SubResource( 11 )
+anims/idle_carry_right = SubResource( 12 )
+anims/idle_carry_up = SubResource( 13 )
+anims/idle_down = SubResource( 14 )
+anims/idle_left = SubResource( 15 )
+anims/idle_right = SubResource( 16 )
+anims/idle_up = SubResource( 17 )
+anims/left = SubResource( 18 )
+anims/right = SubResource( 19 )
+anims/sword_down = SubResource( 20 )
+anims/sword_left = SubResource( 21 )
+anims/sword_right = SubResource( 22 )
+anims/sword_up = SubResource( 23 )
+anims/up = SubResource( 24 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite/AnimationPlayer"]
+tree_root = SubResource( 137 )
+anim_player = NodePath("..")
+active = true
+parameters/playback = SubResource( 138 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 5.96644 )
 scale = Vector2( 1, 0.986999 )
-shape = SubResource( 17 )
+shape = SubResource( 139 )
 
 [node name="PlayerArea" type="Area2D" parent="."]
 position = Vector2( 0.0865526, 6.08061 )
@@ -393,7 +887,7 @@ __meta__ = {
 visible = false
 position = Vector2( 0.301227, 0 )
 scale = Vector2( 2.70246, 1 )
-shape = SubResource( 18 )
+shape = SubResource( 140 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
@@ -407,22 +901,27 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bomb"]
-anims/bomb_up = SubResource( 19 )
-anims/throw_bomb_down = SubResource( 20 )
-anims/throw_bomb_left = SubResource( 21 )
-anims/throw_bomb_right = SubResource( 22 )
-anims/throw_bomb_up = SubResource( 23 )
+anims/bomb_up = SubResource( 141 )
+anims/throw_bomb_down = SubResource( 142 )
+anims/throw_bomb_left = SubResource( 143 )
+anims/throw_bomb_right = SubResource( 144 )
+anims/throw_bomb_up = SubResource( 145 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Bomb/AnimationPlayer"]
+tree_root = SubResource( 159 )
+anim_player = NodePath("..")
+active = true
+parameters/playback = SubResource( 160 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
 
 [connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="area_exited" from="PlayerArea" to="." method="_on_PlayerArea_area_exited"]
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_PlayerArea_body_entered"]
-[connection signal="animation_finished" from="Bomb/AnimationPlayer" to="." method="_on_AnimationBomb_finished"]
-[connection signal="animation_started" from="Bomb/AnimationPlayer" to="." method="_on_Bomb_animation_started"]
+[connection signal="animation_finished" from="Bomb/AnimationPlayer" to="." method="_on_Item_animation_finished"]
+[connection signal="animation_started" from="Bomb/AnimationPlayer" to="." method="_on_Item_animation_started"]
