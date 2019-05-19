@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Objects/BulletTorret1.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Characters/Enemies/Torret/torret_1_bullet.png" type="Texture" id=2]
@@ -33,6 +33,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "rotate"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
@@ -46,6 +47,23 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "explode"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "rotate"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/explode/node = SubResource( 5 )
+states/explode/position = Vector2( 579, 136 )
+states/rotate/node = SubResource( 6 )
+states/rotate/position = Vector2( 366, 222 )
+transitions = [ "rotate", "explode", SubResource( 7 ) ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
 [sub_resource type="CircleShape2D" id=3]
 radius = 63.8942
 
@@ -53,6 +71,7 @@ radius = 63.8942
 radius = 63.7926
 
 [node name="Bullet" type="KinematicBody2D"]
+rotation = 2.52886
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -61,8 +80,15 @@ rotation = 6.28319
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+root_node = NodePath("../..")
 anims/explode = SubResource( 1 )
 anims/rotate = SubResource( 2 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite/AnimationPlayer"]
+tree_root = SubResource( 8 )
+anim_player = NodePath("..")
+active = true
+parameters/playback = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
@@ -73,7 +99,8 @@ one_way_collision_margin = 0.0
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, 3.05176e-05 )
+position = Vector2( 0, 3.05176e-005 )
 shape = SubResource( 4 )
 
+[connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
