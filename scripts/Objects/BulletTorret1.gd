@@ -8,12 +8,13 @@ var damage = 5
 var timer_handler
 signal hit(body)
 var anim_handler
-
+export var lifetime = 5
+export var otype = "bullet"
 func _ready():
 	anim_handler = get_node("Sprite/AnimationPlayer/AnimationTree").get("parameters/playback")
 	timer_handler = Timer.new()
 	timer_handler.connect("timeout", self, "lifetime_out")
-	timer_handler.set_wait_time(2)
+	timer_handler.set_wait_time(lifetime)
 	add_child(timer_handler)
 	pass
 

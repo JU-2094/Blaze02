@@ -1,9 +1,11 @@
-[gd_scene load_steps=161 format=2]
+[gd_scene load_steps=163 format=2]
 
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Characters/Players/character.png" type="Texture" id=2]
 [ext_resource path="res://objects/Bomb.tscn" type="PackedScene" id=3]
-[ext_resource path="res://objects/itemmenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/music/rise.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/explot.wav" type="AudioStream" id=5]
+[ext_resource path="res://objects/itemmenu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "carry_down"
@@ -501,6 +503,14 @@ animation = "up"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=68]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=69]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=73]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=74]
@@ -532,18 +542,18 @@ animation = "up"
 [sub_resource type="AnimationNodeStateMachineTransition" id=87]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=88]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=89]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=90]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=91]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=92]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=93]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=94]
 
@@ -552,6 +562,7 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=96]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=97]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=98]
 
@@ -560,13 +571,13 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=100]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=101]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=102]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=103]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=104]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=105]
 
@@ -575,7 +586,6 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=107]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=108]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=109]
 
@@ -626,23 +636,15 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=132]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=133]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=134]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=135]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=136]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=146]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=147]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=148]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=149]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=137]
@@ -694,7 +696,7 @@ states/sword_up/node = SubResource( 47 )
 states/sword_up/position = Vector2( 265, -5 )
 states/up/node = SubResource( 48 )
 states/up/position = Vector2( 433, 102 )
-transitions = [ "left", "up", SubResource( 49 ), "up", "right", SubResource( 50 ), "right", "down", SubResource( 51 ), "down", "left", SubResource( 52 ), "down", "up", SubResource( 53 ), "down", "right", SubResource( 54 ), "left", "down", SubResource( 55 ), "left", "right", SubResource( 56 ), "right", "left", SubResource( 57 ), "right", "up", SubResource( 58 ), "up", "down", SubResource( 59 ), "up", "left", SubResource( 60 ), "left", "sword_left", SubResource( 61 ), "down", "sword_down", SubResource( 62 ), "right", "sword_right", SubResource( 63 ), "up", "sword_up", SubResource( 64 ), "up", "grab_up", SubResource( 65 ), "right", "grab_right", SubResource( 66 ), "down", "grab_down", SubResource( 67 ), "left", "grab_left", SubResource( 68 ), "carry_up", "carry_down", SubResource( 73 ), "carry_up", "carry_left", SubResource( 74 ), "carry_up", "carry_right", SubResource( 75 ), "carry_left", "carry_up", SubResource( 76 ), "carry_left", "carry_right", SubResource( 77 ), "carry_left", "carry_down", SubResource( 78 ), "carry_down", "carry_up", SubResource( 79 ), "carry_down", "carry_left", SubResource( 80 ), "carry_down", "carry_right", SubResource( 81 ), "carry_right", "carry_left", SubResource( 82 ), "carry_right", "carry_up", SubResource( 83 ), "carry_right", "carry_down", SubResource( 84 ), "idle_down", "down", SubResource( 85 ), "idle_down", "left", SubResource( 86 ), "idle_down", "right", SubResource( 87 ), "idle_down", "up", SubResource( 88 ), "down", "idle_down", SubResource( 89 ), "idle_down", "grab_down", SubResource( 90 ), "idle_down", "sword_down", SubResource( 91 ), "sword_down", "idle_down", SubResource( 92 ), "sword_left", "idle_left", SubResource( 93 ), "idle_left", "sword_left", SubResource( 94 ), "idle_left", "grab_left", SubResource( 95 ), "idle_left", "left", SubResource( 96 ), "left", "idle_left", SubResource( 97 ), "idle_left", "down", SubResource( 98 ), "idle_left", "right", SubResource( 99 ), "idle_left", "up", SubResource( 100 ), "sword_up", "idle_up", SubResource( 101 ), "idle_up", "sword_up", SubResource( 102 ), "idle_up", "up", SubResource( 103 ), "idle_up", "grab_up", SubResource( 104 ), "idle_up", "left", SubResource( 105 ), "idle_up", "right", SubResource( 106 ), "idle_up", "down", SubResource( 107 ), "sword_right", "idle_right", SubResource( 108 ), "idle_right", "sword_right", SubResource( 109 ), "idle_right", "grab_right", SubResource( 110 ), "idle_right", "right", SubResource( 111 ), "idle_right", "up", SubResource( 112 ), "right", "idle_right", SubResource( 113 ), "up", "idle_up", SubResource( 114 ), "idle_right", "down", SubResource( 115 ), "idle_right", "left", SubResource( 116 ), "carry_left", "idle_carry_left", SubResource( 117 ), "idle_carry_left", "carry_left", SubResource( 118 ), "idle_carry_left", "carry_down", SubResource( 119 ), "idle_carry_left", "carry_up", SubResource( 120 ), "idle_carry_left", "carry_right", SubResource( 121 ), "idle_carry_down", "carry_down", SubResource( 122 ), "carry_down", "idle_carry_down", SubResource( 123 ), "idle_carry_down", "carry_right", SubResource( 124 ), "idle_carry_down", "carry_left", SubResource( 125 ), "idle_carry_down", "carry_up", SubResource( 126 ), "carry_right", "idle_carry_right", SubResource( 127 ), "idle_carry_right", "carry_right", SubResource( 128 ), "idle_carry_right", "carry_up", SubResource( 129 ), "idle_carry_right", "carry_down", SubResource( 130 ), "idle_carry_right", "carry_left", SubResource( 131 ), "idle_carry_up", "carry_up", SubResource( 132 ), "carry_up", "idle_carry_up", SubResource( 133 ), "idle_carry_up", "carry_right", SubResource( 134 ), "idle_carry_up", "carry_left", SubResource( 135 ), "idle_carry_up", "carry_down", SubResource( 136 ), "grab_left", "idle_carry_left", SubResource( 146 ), "grab_up", "idle_carry_up", SubResource( 147 ), "grab_down", "idle_carry_down", SubResource( 148 ), "grab_right", "idle_carry_right", SubResource( 149 ) ]
+transitions = [ "left", "up", SubResource( 49 ), "up", "right", SubResource( 50 ), "right", "down", SubResource( 51 ), "down", "left", SubResource( 52 ), "down", "up", SubResource( 53 ), "down", "right", SubResource( 54 ), "left", "down", SubResource( 55 ), "left", "right", SubResource( 56 ), "right", "left", SubResource( 57 ), "right", "up", SubResource( 58 ), "up", "down", SubResource( 59 ), "up", "left", SubResource( 60 ), "left", "sword_left", SubResource( 61 ), "down", "sword_down", SubResource( 62 ), "right", "sword_right", SubResource( 63 ), "up", "sword_up", SubResource( 64 ), "up", "grab_up", SubResource( 65 ), "right", "grab_right", SubResource( 66 ), "down", "grab_down", SubResource( 67 ), "left", "grab_left", SubResource( 68 ), "carry_up", "carry_down", SubResource( 69 ), "carry_up", "carry_left", SubResource( 70 ), "carry_up", "carry_right", SubResource( 71 ), "carry_left", "carry_up", SubResource( 72 ), "carry_left", "carry_right", SubResource( 73 ), "carry_left", "carry_down", SubResource( 74 ), "carry_down", "carry_up", SubResource( 75 ), "carry_down", "carry_left", SubResource( 76 ), "carry_down", "carry_right", SubResource( 77 ), "carry_right", "carry_left", SubResource( 78 ), "carry_right", "carry_up", SubResource( 79 ), "carry_right", "carry_down", SubResource( 80 ), "idle_down", "down", SubResource( 81 ), "idle_down", "left", SubResource( 82 ), "idle_down", "right", SubResource( 83 ), "idle_down", "up", SubResource( 84 ), "down", "idle_down", SubResource( 85 ), "idle_down", "grab_down", SubResource( 86 ), "idle_down", "sword_down", SubResource( 87 ), "sword_down", "idle_down", SubResource( 88 ), "sword_left", "idle_left", SubResource( 89 ), "idle_left", "sword_left", SubResource( 90 ), "idle_left", "grab_left", SubResource( 91 ), "idle_left", "left", SubResource( 92 ), "left", "idle_left", SubResource( 93 ), "idle_left", "down", SubResource( 94 ), "idle_left", "right", SubResource( 95 ), "idle_left", "up", SubResource( 96 ), "sword_up", "idle_up", SubResource( 97 ), "idle_up", "sword_up", SubResource( 98 ), "idle_up", "up", SubResource( 99 ), "idle_up", "grab_up", SubResource( 100 ), "idle_up", "left", SubResource( 101 ), "idle_up", "right", SubResource( 102 ), "idle_up", "down", SubResource( 103 ), "sword_right", "idle_right", SubResource( 104 ), "idle_right", "sword_right", SubResource( 105 ), "idle_right", "grab_right", SubResource( 106 ), "idle_right", "right", SubResource( 107 ), "idle_right", "up", SubResource( 108 ), "right", "idle_right", SubResource( 109 ), "up", "idle_up", SubResource( 110 ), "idle_right", "down", SubResource( 111 ), "idle_right", "left", SubResource( 112 ), "carry_left", "idle_carry_left", SubResource( 113 ), "idle_carry_left", "carry_left", SubResource( 114 ), "idle_carry_left", "carry_down", SubResource( 115 ), "idle_carry_left", "carry_up", SubResource( 116 ), "idle_carry_left", "carry_right", SubResource( 117 ), "idle_carry_down", "carry_down", SubResource( 118 ), "carry_down", "idle_carry_down", SubResource( 119 ), "idle_carry_down", "carry_right", SubResource( 120 ), "idle_carry_down", "carry_left", SubResource( 121 ), "idle_carry_down", "carry_up", SubResource( 122 ), "carry_right", "idle_carry_right", SubResource( 123 ), "idle_carry_right", "carry_right", SubResource( 124 ), "idle_carry_right", "carry_up", SubResource( 125 ), "idle_carry_right", "carry_down", SubResource( 126 ), "idle_carry_right", "carry_left", SubResource( 127 ), "idle_carry_up", "carry_up", SubResource( 128 ), "carry_up", "idle_carry_up", SubResource( 129 ), "idle_carry_up", "carry_right", SubResource( 130 ), "idle_carry_up", "carry_left", SubResource( 131 ), "idle_carry_up", "carry_down", SubResource( 132 ), "grab_left", "idle_carry_left", SubResource( 133 ), "grab_up", "idle_carry_up", SubResource( 134 ), "grab_down", "idle_carry_down", SubResource( 135 ), "grab_right", "idle_carry_right", SubResource( 136 ) ]
 graph_offset = Vector2( 274.052, -18.0076 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=138]
@@ -718,6 +720,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 20 ), Vector2( 0, -30 ) ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../AudioStreamPlayer2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.34,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=142]
 length = 0.7
@@ -732,6 +748,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -30 ), Vector2( 0, 120 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../AudioStreamPlayer2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=143]
@@ -779,48 +809,48 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -30 ), Vector2( 0, -120 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=150]
+[sub_resource type="AnimationNodeAnimation" id=146]
 animation = "bomb_up"
 
-[sub_resource type="AnimationNodeAnimation" id=151]
+[sub_resource type="AnimationNodeAnimation" id=147]
 animation = "throw_bomb_down"
 
-[sub_resource type="AnimationNodeAnimation" id=152]
+[sub_resource type="AnimationNodeAnimation" id=148]
 animation = "throw_bomb_left"
 
-[sub_resource type="AnimationNodeAnimation" id=153]
+[sub_resource type="AnimationNodeAnimation" id=149]
 animation = "throw_bomb_right"
 
-[sub_resource type="AnimationNodeAnimation" id=154]
+[sub_resource type="AnimationNodeAnimation" id=150]
 animation = "throw_bomb_up"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=155]
+[sub_resource type="AnimationNodeStateMachineTransition" id=151]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=156]
+[sub_resource type="AnimationNodeStateMachineTransition" id=152]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=157]
+[sub_resource type="AnimationNodeStateMachineTransition" id=153]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=158]
+[sub_resource type="AnimationNodeStateMachineTransition" id=154]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=159]
-states/bomb_up/node = SubResource( 150 )
+[sub_resource type="AnimationNodeStateMachine" id=155]
+states/bomb_up/node = SubResource( 146 )
 states/bomb_up/position = Vector2( 378, 166 )
-states/throw_bomb_down/node = SubResource( 151 )
+states/throw_bomb_down/node = SubResource( 147 )
 states/throw_bomb_down/position = Vector2( 585, 239 )
-states/throw_bomb_left/node = SubResource( 152 )
+states/throw_bomb_left/node = SubResource( 148 )
 states/throw_bomb_left/position = Vector2( 161, 112 )
-states/throw_bomb_right/node = SubResource( 153 )
+states/throw_bomb_right/node = SubResource( 149 )
 states/throw_bomb_right/position = Vector2( 546, 112 )
-states/throw_bomb_up/node = SubResource( 154 )
+states/throw_bomb_up/node = SubResource( 150 )
 states/throw_bomb_up/position = Vector2( 253, 319 )
-transitions = [ "bomb_up", "throw_bomb_left", SubResource( 155 ), "bomb_up", "throw_bomb_right", SubResource( 156 ), "bomb_up", "throw_bomb_down", SubResource( 157 ), "bomb_up", "throw_bomb_up", SubResource( 158 ) ]
+transitions = [ "bomb_up", "throw_bomb_left", SubResource( 151 ), "bomb_up", "throw_bomb_right", SubResource( 152 ), "bomb_up", "throw_bomb_down", SubResource( 153 ), "bomb_up", "throw_bomb_up", SubResource( 154 ) ]
 end_node = "throw_bomb_down"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=160]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=156]
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 93.2728, 125.572 )
@@ -895,7 +925,7 @@ current = true
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 0, 20 )
+position = Vector2( 0, -30 )
 scale = Vector2( 1.75086, 1.75086 )
 collision_layer = 3
 collision_mask = 3
@@ -908,16 +938,18 @@ anims/throw_bomb_right = SubResource( 144 )
 anims/throw_bomb_up = SubResource( 145 )
 
 [node name="AnimationTree" type="AnimationTree" parent="Bomb/AnimationPlayer"]
-tree_root = SubResource( 159 )
+tree_root = SubResource( 155 )
 anim_player = NodePath("..")
 active = true
-parameters/playback = SubResource( 160 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+parameters/playback = SubResource( 156 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 6 )]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 
 [connection signal="animation_finished" from="Sprite/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]

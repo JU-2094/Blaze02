@@ -114,7 +114,7 @@ func _process(delta):
 		if state_item == 0:
 			var node_item = get_node(playerdata.cur_item_res[playerdata.cur_item])
 			node_item.visible = true
-			$AudioStreamPlayer.play()
+			#$AudioStreamPlayer.play()
 			state_item = 1
 			anim_item_handler.start("bomb_up")
 			match orientation:
