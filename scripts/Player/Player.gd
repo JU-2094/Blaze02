@@ -260,7 +260,20 @@ func _on_Item_animation_finished(anim_name):
 	print("HERE!!")
 	pass # Replace with function body.
 
-
 func _on_Item_animation_started(anim_name):
 	print("INIT !! HERE!!")
 	pass # Replace with function body.
+
+func on_item_anim_end(itype):
+	if itype == "explosive":
+		anim_item_handler.travel("explode")
+	pass
+
+func bomb_explode_callback():
+	$Bomb.visible = false
+	$Bomb.position.x = 0
+	$Bomb.position.y = 0
+	playerdata.items["bombs"] -=1
+	state_item = 0
+
+	pass
