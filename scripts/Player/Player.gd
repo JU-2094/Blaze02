@@ -233,6 +233,7 @@ func check_health():
 		playerdata.stats["lives"]-=1
 		playerdata.stats["health"]=playerdata.maxstats["health"]
 	if playerdata.stats["health"] <= 0 && playerdata.stats["lives"]==0:
+		anim_handler.travel("death")
 		print("you're virtually death")
 	pass
 
