@@ -23,6 +23,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [sub_resource type="CapsuleShape2D" id=4]
+radius = 4.07407
 
 [node name="Snake" type="KinematicBody2D"]
 
