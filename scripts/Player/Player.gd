@@ -111,7 +111,7 @@ func _process(delta):
 			anim_handler.travel("idle_down")
 	
 	if Input.is_key_pressed(KEY_1):
-		if state_item == 0:
+		if state_item == 0 and (playerdata.cur_item in playerdata.cur_item_res):
 			var node_item = get_node(playerdata.cur_item_res[playerdata.cur_item])
 			node_item.visible = true
 			#$AudioStreamPlayer.play()
